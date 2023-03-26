@@ -6,8 +6,8 @@ namespace RandomPoem {
 
     // Arrays with subjects, verb und object
     let subject: string[] = ["Julia", "Hanna", "Tom", "Tina", "Jonathan", "Carmen", "Pedro"];
-    let verb: string[] = [" sagt", " isst", " hat Angst vor", " träumt", " singt gerne", " hasst", " schreit", " läuft mit dem Familienhund Karsten"];
-    let object: string[] = [" Tomate", " Nichts", " Spagetthi", " von einer anderen Welt", " Spinnen", "  Lieder", " nach Hause", " dem Familienhund Karsten"]; 
+    let predicate: string[] = [" sagt", " isst", " hat Angst vor", " träumt", " singt gerne", " hasst", " schreit", " läuft mit dem Familienhund Karsten"];
+    let object: string[] = [" Tomaten", " Nichts", " Spagetthi", " von einer anderen Welt", " Spinnen", "  Lieder", " nach Hause", " dem Familienhund Karsten"]; 
 
     // Making sure that the array works
     // console.log(subject); console.log(verb); console.log(object);
@@ -16,7 +16,7 @@ namespace RandomPoem {
     for (let i: number = subject.length; i >= 1; i--) {
 
         // Declare Variable that triggers function and contains value of randomized words
-        let randomPoem: string = getVerse(subject, verb, object);
+        let randomPoem: string = getVerse(subject, predicate, object);
         // Poem appears in the console
         console.log(randomPoem);
       
