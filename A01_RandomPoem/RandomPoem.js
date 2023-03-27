@@ -6,14 +6,14 @@ var RandomPoem;
     // 26.03.2022
     // Arrays with subjects, verb und object
     let subject = ["Julia", "Hanna", "Tom", "Tina", "Jonathan", "Carmen", "Pedro"];
-    let verb = [" sagt", " isst", " hat Angst vor", " träumt", " singt gerne", " hasst", " schreit", " läuft mit dem Familienhund Karsten"];
-    let object = [" Tomate", " Nichts", " Spagetthi", " von einer anderen Welt", " Spinnen", "  Lieder", " nach Hause", " dem Familienhund Karsten"];
+    let predicate = [" sagt", " isst", " hat Angst vor", " träumt", " singt gerne", " hasst", " schreit", " läuft mit dem Familienhund Karsten"];
+    let object = [" Tomaten", " Nichts", " Spagetthi", " von einer anderen Welt", " Spinnen", "  Lieder", " nach Hause", " dem Familienhund Karsten"];
     // Making sure that the array works
     // console.log(subject); console.log(verb); console.log(object);
     // For-Schleife,that counts backwards through the arrays
     for (let i = subject.length; i >= 1; i--) {
         // Declare Variable that triggers function and contains value of randomized words
-        let randomPoem = getVerse(subject, verb, object);
+        let randomPoem = getVerse(subject, predicate, object);
         // Poem appears in the console
         console.log(randomPoem);
     }

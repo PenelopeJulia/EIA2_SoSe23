@@ -11,7 +11,6 @@ namespace RandomPoem {
 
     // Making sure that the array works
     // console.log(subject); console.log(verb); console.log(object);
-
     // For-Schleife,that counts backwards through the arrays
     for (let i: number = subject.length; i >= 1; i--) {
 
@@ -19,7 +18,6 @@ namespace RandomPoem {
         let randomPoem: string = getVerse(subject, predicate, object);
         // Poem appears in the console
         console.log(randomPoem);
-      
     }
     // Function that gets triggered by for-schleife
     function getVerse(_subject: string[], _verb: string[], _object: string[]) {
@@ -34,8 +32,8 @@ namespace RandomPoem {
 
         // Value of first randomized word gets removed from _subject-array
         _subject.splice(subjectRandom, 1); _verb.splice(verbRandom, 1); _object.splice(objectRandom, 1);
-
         // Value from randomVerse is returned to the function
         return randomVerse;
     }
+    
 }
