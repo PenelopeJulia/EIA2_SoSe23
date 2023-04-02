@@ -1,16 +1,19 @@
 namespace EventInspector {
 
+  // Window-Object triggers Handler handleLoad, if load-event is triggered
    window.addEventListener("load", handleLoad);
 
-   // Handler
+   // Handler for when window loads in browser
    function handleLoad(): void {
 
-   // L
+   // Event-Listener for mousemove, click, keyup -> when a certain event takes place it triggers Handlers setInfoBox, logInfo or customEvent
      document.addEventListener("mousemove", setInfoBox);
      document.addEventListener("click", logInfo);
      document.addEventListener("keyup", logInfo);
      document.addEventListener("click", customEvent);
 
+   // HTML-Components get assigned an Event-Listener that triggers assigned Handlers when certain Event takes place 
+   // ex. div0 gets clicked -> Handler logInfo gets triggered
      document.querySelector("body").addEventListener("click", logInfo);
      document.querySelector("body").addEventListener("keyup", logInfo);
      document.querySelector("#div0").addEventListener("click", logInfo);
@@ -20,15 +23,19 @@ namespace EventInspector {
 
  }
 
+ // Handler setInfoBox with Event-Type MouseEvent
  function setInfoBox(_event: MouseEvent): void {
+  
+    //Horizontal Coordinates of Mouse-Pointer when clicked
     let x: number = _event.clientX;
+    // Vertical Coordinates of Mouse-Pointer when clicked
     let y: number = _event.clientY;
+    // Variable eTarget declared as string -> Target returns Element where it occurs
     let eTarget: string = _event.target + "";
 
+    // Span -> eTarget, where Mouse-Cursor hovers or clicks -> Information about the Target-Object and the vertical and horizontal Information of where the Cursor is on screen (HTML-Manipulation: innerHTML)
     document.querySelector("span").innerHTML = eTarget + x + "px" + y + "px";
-    document.querySelector("span").style.top = (y + 20) + "px";
-    document.querySelector("span").style.left = (x + 10) + "px";
-
+   
  }
 
  // Handler for Console-Output
