@@ -1,6 +1,38 @@
 h1 {
    font-style: normal; 
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-   font-size: larger;
-   color: aquamarine;
+   font-size: xx-large;
+   color: rgb(19, 136, 97);
+}
+
+.box {
+   border: 1px solid transparent;
+   width: 10%;
+   margin: 4%;
+   padding: 15%;
+   float: left;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+#div0 {
+background-color: blue;
+}
+
+#div1 {
+background-color: red;
+}
+
+span {
+   position: fixed;
+   pointer-events: none;
+}
+
+button {
+   float: left;
+   padding: 3%;
+   background-color: #10ca2f;
+}
+
+body {
+   background-color: #f2f0e0;
 }
