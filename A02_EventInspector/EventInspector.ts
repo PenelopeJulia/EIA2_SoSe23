@@ -45,9 +45,10 @@ function customEvent(_event: MouseEvent): void {
     // Grabbing Button from HTML and 
   let button: HTMLElement = <HTMLElement>_event.target;
 
-  // New Custom Event
-  let event: CustomEvent = new CustomEvent("customEvent", { bubbles: true});
+  // New Custom Event with true 
+  let event: CustomEvent = new CustomEvent("customEvent");
 
+  // Dispatch Event on Button
   button.dispatchEvent(event);
   console.log(_event);
 }

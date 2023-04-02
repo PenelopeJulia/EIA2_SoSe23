@@ -7,7 +7,6 @@ h1 {
 
 .box {
    border: 1px solid transparent;
-   width: 10%;
    margin: 4%;
    padding: 15%;
    float: left;
@@ -16,10 +15,14 @@ h1 {
 
 #div0 {
 background-color: blue;
+width: 100px;
+height: 100px;
 }
 
 #div1 {
 background-color: red;
+width: 100px;
+height: 100px;
 }
 
 span {
@@ -28,7 +31,6 @@ span {
 }
 
 button {
-   float: left;
    padding: 3%;
    background-color: #10ca2f;
 }

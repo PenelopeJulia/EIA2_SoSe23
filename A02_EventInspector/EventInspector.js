@@ -34,8 +34,9 @@ var EventInspector;
     function customEvent(_event) {
         // Grabbing Button from HTML and 
         let button = _event.target;
-        // New Custom Event
-        let event = new CustomEvent("customEvent", { bubbles: true });
+        // New Custom Event with true 
+        let event = new CustomEvent("customEvent");
+        // Dispatch Event on Button
         button.dispatchEvent(event);
         console.log(_event);
     }
