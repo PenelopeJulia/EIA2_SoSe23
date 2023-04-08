@@ -10,7 +10,11 @@ namespace EventInspector {
      document.addEventListener("mousemove", setInfoBox);
      document.addEventListener("click", logInfo);
      document.addEventListener("keyup", logInfo);
-     document.addEventListener("click", customEvent);
+
+     // Custom Event -> Button
+     let button = document.getElementById("button");
+     button.addEventListener("click", customEvent);
+     document.addEventListener("newCustomEvent", customEventTriggered);
 
    // HTML-Components get assigned an Event-Listener that triggers assigned Handlers when certain Event takes place 
    // ex. div0 gets clicked -> Handler logInfo gets triggered
@@ -20,7 +24,7 @@ namespace EventInspector {
      document.querySelector("#div0").addEventListener("keyup", logInfo);
      document.querySelector("#div1").addEventListener("click", logInfo);
      document.querySelector("#div1").addEventListener("keyup", logInfo);
-
+  
  }
 
  // Handler setInfoBox with Event-Type MouseEvent
@@ -47,16 +51,20 @@ function logInfo(_event: Event): void {
 }
 
 // Handler for Custom-Event
-function customEvent(_event: MouseEvent): void {
+function customEvent(_event: Event): void {
 
     // Grabbing Button from HTML and 
-  let button: HTMLElement = <HTMLElement>_event.target;
+  let button = document.getElementById("button");
 
   // New Custom Event with true 
-  let event: CustomEvent = new CustomEvent("customEvent);
+  let customEvent = new CustomEvent("newCustomEvent", {bubbles: true});
 
   // Dispatch Event on Button
-  button.dispatchEvent(event);
-  console.log(_event);
+  button.dispatchEvent(customEvent);
+}
+
+function customEventTriggered (_event: Event): void {
+
+  console.log("Custom Event");
 }
 }
