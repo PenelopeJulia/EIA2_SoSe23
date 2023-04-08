@@ -1,0 +1,59 @@
+body {
+    background-color: #f7e9c6;
+    font-size: 17px;
+
+}
+
+#container {
+    width: 400px;
+    margin: 75px auto;
+    position: relative;
+
+}
+
+#addTaskTitleDiv {
+background-color: #d28e1a;
+width: 500px;
+height: 300px;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    top: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    position:relative;
+    text-align: center;
+    margin-bottom: 120px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-small;
+}
+
+.box1 {
+    width: 400px;
+    height: 170px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    background-color: rgb(255, 245, 233);
+}
+
+.box2 {
+    width: 400px;
+    height: 170px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    background-color: rgb(255, 245, 233);
+}
+
+.date {
+    
+}
+
+
+
+
