@@ -1,7 +1,7 @@
 body {
     background-color: #f7e9c6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 17px;
-
 }
 
 #container {
@@ -13,6 +13,7 @@ body {
 
 #addTaskTitleDiv {
 background-color: #d28e1a;
+border-radius: 20px;
 width: 500px;
 height: 300px;
 }
@@ -33,21 +34,18 @@ h2 {
 }
 
 .box1 {
+    margin-top: 10%;
     width: 400px;
     height: 170px;
-    border: 2px;
-    border-color: black;
-    border-style: solid;
-    background-color: rgb(255, 245, 233);
+    border-radius: 20px;
+    background-color: #cf8f73;
 }
 
 .box2 {
     width: 400px;
     height: 170px;
-    border: 2px;
-    border-color: black;
-    border-style: solid;
-    background-color: rgb(255, 245, 233);
+    border-radius: 20px;
+    background-color: #e8bba7;
 }
 
 .date {
