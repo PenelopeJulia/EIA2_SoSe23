@@ -53,7 +53,7 @@ function customEvent(_event: MouseEvent): void {
   let button: HTMLElement = <HTMLElement>_event.target;
 
   // New Custom Event with true 
-  let event: CustomEvent = new CustomEvent("customEvent");
+  let event: CustomEvent = new CustomEvent("customEvent);
 
   // Dispatch Event on Button
   button.dispatchEvent(event);
