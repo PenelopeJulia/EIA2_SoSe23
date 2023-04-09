@@ -16,22 +16,23 @@ body {
     border-radius: 20px;
     width: 500px;
     height: 350px;
-    display: flex; /* Enable flexbox layout */
-    flex-direction: column; /* Set the direction of the flexbox layout to column */
-    align-items: center; /* Center child elements vertically */
-    justify-content: center; /* Center child elements horizontally */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
 }
 
 h1 {
     position: relative;
     text-align: center;
-    top: 15px;
+    top: 2%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h2 {
     position:relative;
     text-align: center;
+    top: -4%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: x-small;
 }
@@ -44,24 +45,45 @@ h2 {
     background-color: #c89179;
 }
 
-.addTaskDiv {
-    
-}
-
 #name {
-    margin-left: 20px;
-
+   margin-left: 5%;
+   margin-top: 4%;
+   width: 20%;
 }
 
 #date {
-
+   margin-left: 4%;
+   width: 2%8;
 }
 
-.time {margin: 20px 20px}
+#time {
+    margin-top: 4%;
+}
+
+.taskBox1 {
+    margin-left: 5%;
+    margin-top: 3%;
+    padding-right: 34%;
+}
+
+textarea {
+    margin-left: 5%;
+    margin-top: 3%;
+    padding-right: 25%;
+    padding-bottom: 8%;
+}
+
+#createTaskButton {
+    border-radius: 50%;
+    border-color: transparent;
+    width: 50px;
+    height: 50px;
+    
+}
 
 .box2 {
     margin-top: 10%;
-
+    margin-left: 6%;
     width: 400px;
     height: 170px;
     border-radius: 20px;
