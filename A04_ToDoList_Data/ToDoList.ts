@@ -23,7 +23,7 @@ namespace L04_ToDoList {
         
         // Finding Task-Characteristics ->  Predefining them for me to use in this namespace
         let name: string;
-        let newTask: string;
+        let task: string;
         let comment: string;
         let date: string;
         let time: string;
@@ -33,23 +33,23 @@ namespace L04_ToDoList {
 
             // Defining task as an Array
             // Using key: category to access array in _data
-            let task: Task[] = _data[category];
+            let tasks: Task[] = _data[category];
 
             // For-Loop -> Counting up from 0 in Array
-            for (let index: number = 0; index < task.length; index++) {
+            for (let index: number = 0; index < tasks.length; index++) {
 
             // Variables getting assigned value from Array that stores the User-Information
-            name = task[index].name;
-            newTask = task[index].newTask;
-            comment = task[index].comment;
-            date = task[index].date;
-            time = task[index].time;
+            name = tasks[index].name;
+            task = tasks[index].task;
+            comment = tasks[index].comment;
+            date = tasks[index].date;
+            time = tasks[index].time;
 
             // Creating new Div-Element
             let newTaskDiv: HTMLElement = document.createElement("div");
 
             // Manipulating HTML by adding new DIV to DOM
-            newTaskDiv.innerHTML = name + "" + newTask + "" + comment + "" + date + "" + time + "";
+            newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
             newTaskDiv.classList.add("generateContent");
             document.body.appendChild(newTaskDiv);
 
@@ -65,24 +65,66 @@ namespace L04_ToDoList {
     function addTask(_event: Event): void {
         console.log("addTask");
 
-        let inputValue: HTMLInputElement = <HTMLInputElement>document.getElementById("input");
-        let 
+        // Declare variables
+        // Get input and textarea by ID from DOM
+        let nameValue: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
+        let taskValue: HTMLInputElement = <HTMLInputElement>document.getElementById("task");
+        let dateValue: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
+        let timeValue: HTMLInputElement = <HTMLInputElement>document.getElementById("time");
+        let commentValue: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
+        // Array
+        let i: Task = {
+
+            // Assign value to name, task, date, time and comment 
+            name: nameValue.value,
+            task: taskValue.value,
+            date: dateValue.value,
+            time: timeValue.value,
+            comment: commentValue.value,
+        };
+
+        // create new "p"-Elements
+        let name: HTMLElement = document.createElement("p");
+
+        let task: HTMLElement = document.createElement("p");
+
+        let comment: HTMLElement = document.createElement("p");
+
+        let date: HTMLElement = document.createElement("p");
+
+        let time: HTMLElement = document.createElement("p");
+
+        // Create new HTML-Element -> Edit-Icon
+        let editIcon: HTMLElement = document.createElement("i");
+        editIcon.classList.add("edit");
+        // Manipulate HTML through innerHTML and create specific Icon 
+        editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
+        // install an addEventListener on Edit-icon 
+        // When clicked function editTask is triggered
+        editIcon.addEventListener("click", editTask);
+
+
+        // Create new Icon -> delete-Icon
+        let deleteIcon: HTMLElement = document.createElement("i");
+        deleteIcon.classList.add("delete");
+        // Manipulate HTML through innerHTML and create specific Icon 
+        deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>'
+        // Install an addEventListener on Delete-icon 
+        // When clicked function deleteTask is triggered
+        deleteIcon.addEventListener("click", deleteTask);
     }
 
 
 
     function editTask(_event: Event): void {
-        console.log("editTask");
 
-        let edit: Element = document.querySelector("#edit");
-        edit.addEventListener("click", editTask);
+        console.log("editTask");
     }
 
     function deleteTask(_event: Event): void {
+        
         console.log("deleteTask");
 
-       // let delete: Element = document.querySelector("#delete");
-        //delete.addEventListener("click", deleteTask);
     }
 }

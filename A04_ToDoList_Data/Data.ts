@@ -4,7 +4,7 @@ namespace L04_ToDoList {
     // Characteristics of Tasks are being predefined in this interface -> key and value
     export interface Task {
         name: string;
-        newTask: string;
+        task: string;
         comment: string;
         date: string;
         time: string;
@@ -25,11 +25,11 @@ namespace L04_ToDoList {
         newTask: [
 
             {
-                name: "Anna",
-                newTask: "Küche putzen",
-                comment:"Bitte gründlich machen!",
-                date: "27.04.2023",
-                time: "17:00"
+                name: "",
+                task: "",
+                comment:"",
+                date: "",
+                time: ""
             }
         ]
     }

@@ -6,11 +6,11 @@ var L04_ToDoList;
         // Array with chacarcteristics as following: name, newTask...
         newTask: [
             {
-                name: "Anna",
-                newTask: "Küche putzen",
-                comment: "Bitte gründlich machen!",
-                date: "27.04.2023",
-                time: "17:00"
+                name: "",
+                task: "",
+                comment: "",
+                date: "",
+                time: ""
             }
         ]
     };

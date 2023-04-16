@@ -19,7 +19,7 @@ var L04_ToDoList;
     function generateContent(_data) {
         // Finding Task-Characteristics ->  Predefining them for me to use in this namespace
         let name;
-        let newTask;
+        let task;
         let comment;
         let date;
         let time;
@@ -27,19 +27,19 @@ var L04_ToDoList;
         for (let category in _data) {
             // Defining task as an Array
             // Using key: category to access array in _data
-            let task = _data[category];
+            let tasks = _data[category];
             // For-Loop -> Counting up from 0 in Array
-            for (let index = 0; index < task.length; index++) {
+            for (let index = 0; index < tasks.length; index++) {
                 // Variables getting assigned value from Array that stores the User-Information
-                name = task[index].name;
-                newTask = task[index].newTask;
-                comment = task[index].comment;
-                date = task[index].date;
-                time = task[index].time;
+                name = tasks[index].name;
+                task = tasks[index].task;
+                comment = tasks[index].comment;
+                date = tasks[index].date;
+                time = tasks[index].time;
                 // Creating new Div-Element
                 let newTaskDiv = document.createElement("div");
                 // Manipulating HTML by adding new DIV to DOM
-                newTaskDiv.innerHTML = name + "" + newTask + "" + comment + "" + date + "" + time + "";
+                newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
                 newTaskDiv.classList.add("generateContent");
                 document.body.appendChild(newTaskDiv);
                 console.log("generate Content");
@@ -49,18 +49,50 @@ var L04_ToDoList;
     // Function addTask 
     function addTask(_event) {
         console.log("addTask");
-        let inputValue = document.getElementById("input");
-        let;
+        // Declare variables
+        // Get input and textarea by ID from DOM
+        let nameValue = document.getElementById("name");
+        let taskValue = document.getElementById("task");
+        let dateValue = document.getElementById("date");
+        let timeValue = document.getElementById("time");
+        let commentValue = document.getElementById("comment");
+        // Array
+        let i = {
+            // Assign value to name, task, date, time and comment 
+            name: nameValue.value,
+            task: taskValue.value,
+            date: dateValue.value,
+            time: timeValue.value,
+            comment: commentValue.value,
+        };
+        // create new "p"-Elements
+        let name = document.createElement("p");
+        let task = document.createElement("p");
+        let comment = document.createElement("p");
+        let date = document.createElement("p");
+        let time = document.createElement("p");
+        // Create new HTML-Element -> Edit-Icon
+        let editIcon = document.createElement("i");
+        editIcon.classList.add("edit");
+        // Manipulate HTML through innerHTML and create specific Icon 
+        editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
+        // install an addEventListener on Edit-icon 
+        // When clicked function editTask is triggered
+        editIcon.addEventListener("click", editTask);
+        // Create new Icon -> delete-Icon
+        let deleteIcon = document.createElement("i");
+        deleteIcon.classList.add("delete");
+        // Manipulate HTML through innerHTML and create specific Icon 
+        deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>';
+        // Install an addEventListener on Delete-icon 
+        // When clicked function deleteTask is triggered
+        deleteIcon.addEventListener("click", deleteTask);
     }
     function editTask(_event) {
         console.log("editTask");
-        let edit = document.querySelector("#edit");
-        edit.addEventListener("click", editTask);
     }
     function deleteTask(_event) {
         console.log("deleteTask");
-        // let delete: Element = document.querySelector("#delete");
-        //delete.addEventListener("click", deleteTask);
     }
 })(L04_ToDoList || (L04_ToDoList = {}));
 //# sourceMappingURL=ToDoList.js.map
