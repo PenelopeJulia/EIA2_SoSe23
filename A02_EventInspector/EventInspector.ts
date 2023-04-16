@@ -1,4 +1,4 @@
-namespace EventInspector {
+namespace L02_EventInspector {
 
   // Window-Object triggers Handler handleLoad, if load-event is triggered
    window.addEventListener("load", handleLoad);
