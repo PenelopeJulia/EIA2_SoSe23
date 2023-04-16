@@ -10,7 +10,7 @@ namespace L04_ToDoList {
        generateContent(data);
 
        // Accesing Button from DOM with ID
-        let button: Element = document.querySelector("#createTaskButton");
+        let button: Element | null = document.querySelector("#createTaskButton");
         // Event-Listener gets installed on Button, if Button is clicked by User Function addTask gets triggered
         button.addEventListener("click", addTask);
     }
@@ -50,9 +50,10 @@ namespace L04_ToDoList {
 
             // Manipulating HTML by adding new DIV to DOM
             newTaskDiv.innerHTML = name + "" + newTask + "" + comment + "" + date + "" + time + "";
-            newTaskDiv.classList.add("dataList");
+            newTaskDiv.classList.add("generateContent");
             document.body.appendChild(newTaskDiv);
 
+            console.log("generate Content");
         }
 
     }
@@ -60,8 +61,12 @@ namespace L04_ToDoList {
 
     }
 
+    // Function addTask 
     function addTask(_event: Event): void {
-        console.log(addTask);
+        console.log("addTask");
+
+        let inputValue: HTMLInputElement = <HTMLInputElement>document.getElementById("input");
+        let 
 
     }
 

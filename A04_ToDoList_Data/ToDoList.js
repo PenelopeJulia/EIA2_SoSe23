@@ -40,13 +40,17 @@ var L04_ToDoList;
                 let newTaskDiv = document.createElement("div");
                 // Manipulating HTML by adding new DIV to DOM
                 newTaskDiv.innerHTML = name + "" + newTask + "" + comment + "" + date + "" + time + "";
-                newTaskDiv.classList.add("dataList");
+                newTaskDiv.classList.add("generateContent");
                 document.body.appendChild(newTaskDiv);
+                console.log("generate Content");
             }
         }
     }
+    // Function addTask 
     function addTask(_event) {
-        console.log(addTask);
+        console.log("addTask");
+        let inputValue = document.getElementById("input");
+        let;
     }
     function editTask(_event) {
         console.log("editTask");
