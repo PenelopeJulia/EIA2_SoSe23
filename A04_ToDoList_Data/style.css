@@ -1,0 +1,162 @@
+body {
+    background-color: #f7e9c6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+}
+
+#container {
+    width: 400px;
+    margin: 60px auto;
+    position: relative;
+
+}
+
+#addTaskTitleDiv {
+    background-color: #d28e1a;
+    border-radius: 20px;
+    width: 500px;
+    height: 350px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    top: 2%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    position:relative;
+    text-align: center;
+    top: -4%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-small;
+}
+
+.box1 {
+    margin-top: 20px;
+    width: 400px;
+    height: 170px;
+    border-radius: 20px;
+    background-color: #c89179;
+}
+
+#name {
+   margin-left: 5%;
+   margin-top: 4%;
+   width: 20%;
+}
+
+#date {
+   margin-left: 4%;
+   width: 2%8;
+}
+
+#time {
+    margin-top: 4%;
+}
+
+.taskBox1 {
+    margin-left: 5%;
+    margin-top: 3%;
+    padding-right: 34%;
+}
+
+textarea {
+    margin-left: 5%;
+    margin-top: 3%;
+    padding-right: 25%;
+    padding-bottom: 8%;
+}
+
+#createTaskButton {
+    position: relative;
+    border-radius: 10%;
+    border-color: transparent;
+    width: 50px;
+    height: 20px;
+    margin-left: 80%;
+    margin: 15px;
+}
+
+.box2 {
+    margin-top: 10%;
+    margin-left: 6%;
+    width: 400px;
+    height: 170px;
+    border-radius: 20px;
+    background-color: #eed6cc;
+    position: relative;
+    padding: 20px;
+}
+
+.box2 p {
+    margin: 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.name {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.date {
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    text-align: center;
+}
+
+.time {
+    position: absolute;
+    top: 5%;
+    left: 60%;
+    text-align: center;
+}
+
+.task {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+.comment {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    padding-bottom: 10% !important;
+    padding-right: 54% !important;
+    box-sizing: border-box;
+}
+
+#status {
+    position: absolute;
+    top: 36%;
+    left: 60%;
+}
+
+.fa-pen-to-square {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+}
+
+.fa-x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+
+
+
+

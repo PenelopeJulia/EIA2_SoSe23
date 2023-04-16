@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6cdc59cde3.js" crossorigin="anonymous"></script>
+    <script src="ToDoList.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+<div id="addTaskTitleDiv">
+
+    <h1> To Do List </h1>
+    <h2> Shared Flat</h2>
+
+
+    <div class="box1">
+
+        <input type="" id="name" placeholder="name">
+        <input type="date" id="date" placeholder="date">
+        <input type="time" id="time" placeholder="time">
+        <input type="" class="taskBox1" placeholder="new Task">
+        <textarea type="" placeholder="Add a Comment!"></textarea>
+        <button id="createTaskButton" >add</button>
+    
+    </div>
+</div>
+
+    <div class="box2">
+        <p class="name">Charlie</p>
+        <p class="date"> 08.04.2023</p>
+        <p class="time"> 12:40</p>
+
+        <p class="task">Clean Kitchen Counter</p>
+        <select id="status" name="status">
+            <option value="incomplete">incomplete</option>
+            <option value="in progress">in progress</option>
+            <option value="deadline missed">deadline missed</option>
+            <option value="done">done</option></select>
+        <p class="comment"> Do it thoroughly!</p>
+
+        <i class="fa-solid fa-pen-to-square" id="edit"></i>
+        <i class="fa-solid fa-x" id="Delete"></i>
+
+    </div>
+
+
+
+
+</div>
+    
+</body>
+</html>
