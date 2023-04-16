@@ -1,6 +1,6 @@
 "use strict";
-var RandomPoem;
-(function (RandomPoem) {
+var L01_RandomPoem;
+(function (L01_RandomPoem) {
     // Penelope Julia Vogel
     // A1: Random Poem
     // 26.03.2022
@@ -32,5 +32,5 @@ var RandomPoem;
         // Value from randomVerse is returned to the function
         return randomVerse;
     }
-})(RandomPoem || (RandomPoem = {}));
+})(L01_RandomPoem || (L01_RandomPoem = {}));
 //# sourceMappingURL=RandomPoem.js.map

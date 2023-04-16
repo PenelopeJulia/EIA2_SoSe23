@@ -1,6 +1,6 @@
 "use strict";
-var EventInspector;
-(function (EventInspector) {
+var L02_EventInspector;
+(function (L02_EventInspector) {
     // Window-Object triggers Handler handleLoad, if load-event is triggered
     window.addEventListener("load", handleLoad);
     // Handler for when window loads in browser
@@ -51,5 +51,5 @@ var EventInspector;
     function customEventTriggered(_event) {
         console.log("Custom Event");
     }
-})(EventInspector || (EventInspector = {}));
+})(L02_EventInspector || (L02_EventInspector = {}));
 //# sourceMappingURL=EventInspector.js.map

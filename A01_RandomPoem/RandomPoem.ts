@@ -1,4 +1,4 @@
-namespace RandomPoem {
+namespace L01_RandomPoem {
 
     // Penelope Julia Vogel
     // A1: Random Poem

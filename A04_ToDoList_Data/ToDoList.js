@@ -55,10 +55,8 @@ var L04_ToDoList;
     }
     function deleteTask(_event) {
         console.log("deleteTask");
-        let;
-        delete ;
-        Element = document.querySelector("#delete");
-        delete .addEventListener("click", deleteTask);
+        // let delete: Element = document.querySelector("#delete");
+        //delete.addEventListener("click", deleteTask);
     }
 })(L04_ToDoList || (L04_ToDoList = {}));
 //# sourceMappingURL=ToDoList.js.map

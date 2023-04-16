@@ -7,8 +7,8 @@ namespace L03_ToDoList {
     let edit: Element = document.querySelector("#edit");
     edit.addEventListener("click", editTask);
 
-    let delete: Element = document.querySelector("#delete");
-    delete.addEventListener("click", deleteTask);
+    //let delete: Element = document.querySelector("#delete");
+    //delete.addEventListener("click", deleteTask);
 
     function addTask(): void{
 

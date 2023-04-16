@@ -77,9 +77,7 @@ namespace L04_ToDoList {
     function deleteTask(_event: Event): void {
         console.log("deleteTask");
 
-        let delete: Element = document.querySelector("#delete");
-        delete.addEventListener("click", deleteTask);
+       // let delete: Element = document.querySelector("#delete");
+        //delete.addEventListener("click", deleteTask);
     }
-
-
-    }
+}
