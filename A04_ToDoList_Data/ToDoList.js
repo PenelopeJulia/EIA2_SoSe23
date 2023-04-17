@@ -5,6 +5,7 @@ var L04_ToDoList;
     window.addEventListener("load", handleLoad);
     // Function handleLoad calls Function generateContent and grabs Button from DOM
     function handleLoad(_event) {
+        console.log(L04_ToDoList.data);
         // Function generateContent loads Data
         generateContent(L04_ToDoList.data);
         // Accesing Button from DOM with ID
@@ -24,70 +25,110 @@ var L04_ToDoList;
         let comment;
         let date;
         let time;
-        // For/In-Loop -> Looking for Data in Categories
-        for (let category in _data) {
-            // Defining task as an Array
-            // Using key: category to access array in _data
-            let tasks = _data[category];
-            // For-Loop -> Counting up from 0 in Array
-            for (let index = 0; index < tasks.length; index++) {
-                // Variables 
-                name = tasks[index].name;
-                task = tasks[index].task;
-                comment = tasks[index].comment;
-                date = tasks[index].date;
-                time = tasks[index].time;
-                // Creating new Div-Element
-                let newTaskDiv = document.createElement("div");
-                let addTaskTitleDiv = document.getElementById("#addTaskTitleDiv");
-                // Manipulating HTML by adding new DIV to DOM
-                newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
-                newTaskDiv.classList.add("newTaskDiv");
-                addTaskTitleDiv.appendChild(newTaskDiv);
-                // create new "p"-Elements
-                let nameNewTaskDiv = document.createElement("p");
-                let taskNewTaskDiv = document.createElement("p");
-                let commentNewTaskDiv = document.createElement("p");
-                let dateNewTaskDiv = document.createElement("p");
-                let timeNewTaskDiv = document.createElement("p");
-                // Create new HTML-Element -> Edit-Icon
-                let editIcon = document.createElement("i");
-                editIcon.classList.add("edit");
-                // Manipulate HTML through innerHTML and create specific Icon 
-                editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
-                // install an addEventListener on Edit-icon 
-                // When clicked function editTask is triggered
-                editIcon.addEventListener("click", editTask);
-                // Create new Icon -> delete-Icon
-                let deleteIcon = document.createElement("i");
-                deleteIcon.classList.add("delete");
-                // Manipulate HTML through innerHTML and create specific Icon 
-                deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>';
-                // Install an addEventListener on Delete-icon 
-                // When clicked function deleteTask is triggered
-                deleteIcon.addEventListener("click", deleteTask);
-                console.log("generate Content");
-            }
+        // For-Loop -> Counting up from 0 in Array
+        for (let index = 0; index < L04_ToDoList.data.length; index++) {
+            // Attributes from Array assigned to according Variables
+            // 
+            name = L04_ToDoList.data[index].name;
+            task = L04_ToDoList.data[index].task;
+            comment = L04_ToDoList.data[index].comment;
+            date = L04_ToDoList.data[index].date;
+            time = L04_ToDoList.data[index].time;
+            // Creating new Div-Element
+            let exampleTaskDiv = document.createElement("div");
+            let addTaskTitleDiv = document.getElementById("addTaskTitleDiv");
+            // Manipulating HTML by adding new DIV to DOM
+            exampleTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
+            // Give newTaskDiv a Class for CSS
+            exampleTaskDiv.classList.add("exampleTaskDiv");
+            //append newTaskDiv to addTaskTitleDiv
+            addTaskTitleDiv.appendChild(exampleTaskDiv);
+            console.log("generate Content");
         }
     }
     // Function addTask 
     function addTask(_event) {
-        console.log("addTask");
+        // Declare new Div locally -> will contain all elements with value from User-Input
+        let newTaskDiv = document.createElement("div");
+        // Give newTaskDiv a Class for CSS
+        newTaskDiv.id = ("newTaskDiv");
+        let addTaskTitleDiv = document.getElementById("addTaskTitleDiv");
+        let bigContainer = document.getElementById("bigContainer");
+        // Append bigContainer to addTaskTitleDiv so I can position it under it
+        addTaskTitleDiv.appendChild(bigContainer);
+        // Append newTaskDiv to addTaskTitleDiv
+        bigContainer.appendChild(newTaskDiv);
         // Declare variables
         // Get input and textarea by ID from DOM
-        let nameValue = document.getElementById("name");
-        let taskValue = document.getElementById("task");
-        let dateValue = document.getElementById("date");
-        let timeValue = document.getElementById("time");
-        let commentValue = document.getElementById("comment");
-        // Array
-        let i = {
-            name: nameValue.value,
-            task: taskValue.value,
-            date: dateValue.value,
-            time: timeValue.value,
-            comment: commentValue.value,
-        };
+        let nameInput = document.getElementById("name");
+        let taskInput = document.getElementById("task");
+        let dateInput = document.getElementById("date");
+        let timeInput = document.getElementById("time");
+        let commentInput = document.getElementById("comment");
+        // Create new "p"-Elements
+        //Create new
+        let nameNewTaskDiv = document.createElement("Div");
+        nameNewTaskDiv.innerHTML = nameInput.value;
+        nameNewTaskDiv.classList.add("nameNewtaskDiv");
+        let taskNewTaskDiv = document.createElement("Div");
+        taskNewTaskDiv.innerHTML = taskInput.value;
+        taskNewTaskDiv.classList.add("taskNewtaskDiv");
+        let commentNewTaskDiv = document.createElement("Div");
+        commentNewTaskDiv.innerHTML = commentInput.value;
+        commentNewTaskDiv.classList.add("commentNewtaskDiv");
+        let dateNewTaskDiv = document.createElement("Div");
+        dateNewTaskDiv.innerHTML = dateInput.value;
+        dateNewTaskDiv.classList.add("dateNewtaskDiv");
+        let timeNewTaskDiv = document.createElement("Div");
+        timeNewTaskDiv.innerHTML = timeInput.value;
+        timeNewTaskDiv.classList.add("timeNewtaskDiv");
+        //console.log(nameInput.value);
+        //console.log(taskInput.value);
+        //console.log(commentInput.value);
+        //console.log(dateInput.value);
+        //console.log(timeInput.value);
+        nameInput.value = "";
+        taskInput.value = "";
+        commentInput.value = "";
+        dateInput.value = "";
+        timeInput.value = "";
+        newTaskDiv.appendChild(nameNewTaskDiv);
+        newTaskDiv.appendChild(taskNewTaskDiv);
+        newTaskDiv.appendChild(commentNewTaskDiv);
+        newTaskDiv.appendChild(dateNewTaskDiv);
+        newTaskDiv.appendChild(timeNewTaskDiv);
+        // Create new Icon -> Edit-Icon
+        let editIcon = document.createElement("i");
+        // Give it a class -> CSS
+        editIcon.className = "fa-solid fa-pen-to-square";
+        // append editIcon to newTaskDiv
+        newTaskDiv.appendChild(editIcon);
+        // Install an addEventListener on Edit-icon 
+        // When clicked function editTask is triggered
+        editIcon.addEventListener("click", editTask);
+        // Create new Icon -> Delete-Icon
+        let deleteIcon = document.createElement("i");
+        // Give it a class for CSS
+        deleteIcon.className = "fa-solid fa-x";
+        // Append deleteIcon to newTaskDiv
+        newTaskDiv.appendChild(deleteIcon);
+        // Install an addEventListener on Delete-icon 
+        // When clicked function deleteTask is triggered
+        deleteIcon.addEventListener("click", deleteTask);
+        // add Select-Element with three options: in progress, done and incomplete
+        let statusList = document.createElement("select");
+        let option1 = document.createElement("option");
+        option1.text = "in progress";
+        statusList.add(option1);
+        let option2 = document.createElement("option");
+        option2.text = "done";
+        statusList.add(option2);
+        let option3 = document.createElement("option");
+        option3.text = "incomplete";
+        statusList.add(option3);
+        statusList.id = ("statusList");
+        //append Select-List to newTaskDiv
+        newTaskDiv.appendChild(statusList);
     }
     function editTask(_event) {
         console.log("editTask");

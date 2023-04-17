@@ -10,29 +10,18 @@ namespace L04_ToDoList {
         time: string;
     }
 
-    // Data is being predefined
-    // "Category" as the key of the type: string
-    // Value is followring Array -> Task[]
-    export interface Data {
-    [category: string]: Task[];
-    }
-
-
     // Data is predefined
-    export let data: Data = {
+    export let data: Task[] = [
 
-        // Array with chacarcteristics as following: name, newTask...
-        newTask: [
+        // Array with chacarcteristics as following: name, newTask... 
 
-            {
-                name: "",
-                task: "",
-                comment:"",
-                date: "",
-                time: ""
-            }
-        ]
-    }
-
-
+        {
+                 name: "Anna",
+                task: "Wischen",
+                comment:"Gründlich!",
+                date: "27.04.2023",
+                time: "12:30"
+        }
+    
+    ]
 }
