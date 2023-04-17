@@ -33,62 +33,65 @@ namespace L04_ToDoList {
         // For/In-Loop -> Looking for Data in Categories
         for (let category in _data) {
 
-            // Defining task as an Array
-            // Using key: category to access array in _data
+            // Assigning Array to variable tasks
+            // Using key: category to access array in data
             let tasks: Task[] = _data[category];
 
             // For-Loop -> Counting up from 0 in Array
             for (let index: number = 0; index < tasks.length; index++) {
 
-            // Variables 
-            name = tasks[index].name;
-            task = tasks[index].task;
-            comment = tasks[index].comment;
-            date = tasks[index].date;
-            time = tasks[index].time;
+                // Attributes from Array assigned to according Variables
+                // 
+                name = tasks[index].name;
+                task = tasks[index].task;
+                comment = tasks[index].comment;
+                date = tasks[index].date;
+                time = tasks[index].time;
 
-            // Creating new Div-Element
-            let newTaskDiv: HTMLElement = document.createElement("div");
-            let addTaskTitleDiv: HTMLElement = <HTMLBodyElement>document.getElementById("#addTaskTitleDiv");
+                // Creating new Div-Element
+                let newTaskDiv: HTMLElement = document.createElement("div");
+                let addTaskTitleDiv: HTMLElement = <HTMLBodyElement>document.getElementById("#addTaskTitleDiv");
 
-            // Manipulating HTML by adding new DIV to DOM
-            newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
-            newTaskDiv.classList.add("newTaskDiv");
-            addTaskTitleDiv.appendChild(newTaskDiv);
+                // Manipulating HTML by adding new DIV to DOM
+                newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
+                // Give newTaskDiv a Class for CSS
+                newTaskDiv.classList.add("newTaskDiv");
+                //append newTaskDiv to addTaskTitleDiv
+                addTaskTitleDiv.appendChild(newTaskDiv);
 
-        // create new "p"-Elements
-        let nameNewTaskDiv: HTMLElement = document.createElement("p");
+                // create new "p"-Elements
+                let nameNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let taskNewTaskDiv: HTMLElement = document.createElement("p");
+                let taskNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let commentNewTaskDiv: HTMLElement = document.createElement("p");
+                let commentNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let dateNewTaskDiv: HTMLElement = document.createElement("p");
+                let dateNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let timeNewTaskDiv: HTMLElement = document.createElement("p");
-
-
-
-        // Create new HTML-Element -> Edit-Icon
-        let editIcon: HTMLElement = document.createElement("i");
-        editIcon.classList.add("edit");
-        // Manipulate HTML through innerHTML and create specific Icon 
-        editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
-        // install an addEventListener on Edit-icon 
-        // When clicked function editTask is triggered
-        editIcon.addEventListener("click", editTask);
+                let timeNewTaskDiv: HTMLElement = document.createElement("p");
 
 
-        // Create new Icon -> delete-Icon
-        let deleteIcon: HTMLElement = document.createElement("i");
-        deleteIcon.classList.add("delete");
-        // Manipulate HTML through innerHTML and create specific Icon 
-        deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>'
-        // Install an addEventListener on Delete-icon 
-        // When clicked function deleteTask is triggered
-        deleteIcon.addEventListener("click", deleteTask);
 
-            console.log("generate Content");
+                // Create new HTML-Element -> Edit-Icon
+                let editIcon: HTMLElement = document.createElement("i");
+                editIcon.classList.add("edit");
+                // Manipulate HTML through innerHTML and create specific Icon 
+                editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
+                // install an addEventListener on Edit-icon 
+                // When clicked function editTask is triggered
+                editIcon.addEventListener("click", editTask);
+
+
+                // Create new Icon -> delete-Icon
+                let deleteIcon: HTMLElement = document.createElement("i");
+                deleteIcon.classList.add("delete");
+                // Manipulate HTML through innerHTML and create specific Icon 
+                deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>'
+                // Install an addEventListener on Delete-icon 
+                // When clicked function deleteTask is triggered
+                deleteIcon.addEventListener("click", deleteTask);
+
+                console.log("generate Content");
         }
 
     }
