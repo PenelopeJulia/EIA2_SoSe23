@@ -39,16 +39,17 @@ var L04_ToDoList;
                 time = tasks[index].time;
                 // Creating new Div-Element
                 let newTaskDiv = document.createElement("div");
+                let addTaskTitleDiv = document.getElementById("#addTaskTitleDiv");
                 // Manipulating HTML by adding new DIV to DOM
                 newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
-                newTaskDiv.classList.add("generateContent");
-                document.body.appendChild(newTaskDiv);
+                newTaskDiv.classList.add("newTaskDiv");
+                addTaskTitleDiv.appendChild(newTaskDiv);
                 // create new "p"-Elements
-                let nameNewTask = document.createElement("p");
-                let taskNewTask = document.createElement("p");
-                let commentNewTask = document.createElement("p");
-                let dateNewTask = document.createElement("p");
-                let timeNewTask = document.createElement("p");
+                let nameNewTaskDiv = document.createElement("p");
+                let taskNewTaskDiv = document.createElement("p");
+                let commentNewTaskDiv = document.createElement("p");
+                let dateNewTaskDiv = document.createElement("p");
+                let timeNewTaskDiv = document.createElement("p");
                 // Create new HTML-Element -> Edit-Icon
                 let editIcon = document.createElement("i");
                 editIcon.classList.add("edit");

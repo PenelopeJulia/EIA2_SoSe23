@@ -4,14 +4,10 @@ body {
     font-size: 17px;
 }
 
-#container {
+#addTaskTitleDiv {
     width: 400px;
     margin: 60px auto;
     position: relative;
-
-}
-
-#addTaskTitleDiv {
     background-color: #d28e1a;
     border-radius: 20px;
     width: 500px;

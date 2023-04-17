@@ -49,22 +49,25 @@ namespace L04_ToDoList {
 
             // Creating new Div-Element
             let newTaskDiv: HTMLElement = document.createElement("div");
+            let addTaskTitleDiv: HTMLElement = <HTMLBodyElement>document.getElementById("#addTaskTitleDiv");
 
             // Manipulating HTML by adding new DIV to DOM
             newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
-            newTaskDiv.classList.add("generateContent");
-            document.body.appendChild(newTaskDiv);
+            newTaskDiv.classList.add("newTaskDiv");
+            addTaskTitleDiv.appendChild(newTaskDiv);
 
         // create new "p"-Elements
-        let nameNewTask: HTMLElement = document.createElement("p");
+        let nameNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let taskNewTask: HTMLElement = document.createElement("p");
+        let taskNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let commentNewTask: HTMLElement = document.createElement("p");
+        let commentNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let dateNewTask: HTMLElement = document.createElement("p");
+        let dateNewTaskDiv: HTMLElement = document.createElement("p");
 
-        let timeNewTask: HTMLElement = document.createElement("p");
+        let timeNewTaskDiv: HTMLElement = document.createElement("p");
+
+
 
         // Create new HTML-Element -> Edit-Icon
         let editIcon: HTMLElement = document.createElement("i");
