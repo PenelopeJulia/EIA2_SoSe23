@@ -10,7 +10,7 @@ namespace L04_ToDoList {
        generateContent(data);
 
        // Accesing Button from DOM with ID
-        let button: Element | null = document.querySelector("#createTaskButton");
+        let button: Element = <HTMLBodyElement>document.querySelector("#createTaskButton");
         // Event-Listener gets installed on Button, if Button is clicked by User Function addTask gets triggered
         button.addEventListener("click", addTask);
     }
