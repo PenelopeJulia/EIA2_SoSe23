@@ -1,14 +1,14 @@
 namespace L03_ToDoList {
 
-    let button: Element = document.querySelector("#createTaskButton");
+    let button: Element = <HTMLBodyElement>document.querySelector("#createTaskButton");
     button.addEventListener("click", addTask);
     
 
-    let edit: Element = document.querySelector("#edit");
+    let edit: Element = <HTMLBodyElement>document.querySelector("#edit");
     edit.addEventListener("click", editTask);
 
-    //let delete: Element = document.querySelector("#delete");
-    //delete.addEventListener("click", deleteTask);
+    // let delete: Element = <HTMLBodyElement>document.querySelector("#delete");
+    // delete.addEventListener("click", deleteTask);
 
     function addTask(): void{
 
@@ -18,7 +18,6 @@ namespace L03_ToDoList {
 
     }
 
-    function deleteTask(): void {
-        
-    }
+   // function deleteTask(): void { 
+   // }
 }

@@ -5,13 +5,13 @@ var L03_ToDoList;
     button.addEventListener("click", addTask);
     let edit = document.querySelector("#edit");
     edit.addEventListener("click", editTask);
-    //let delete: Element = document.querySelector("#delete");
-    //delete.addEventListener("click", deleteTask);
+    // let delete: Element = <HTMLBodyElement>document.querySelector("#delete");
+    // delete.addEventListener("click", deleteTask);
     function addTask() {
     }
     function editTask() {
     }
-    function deleteTask() {
-    }
+    // function deleteTask(): void { 
+    // }
 })(L03_ToDoList || (L03_ToDoList = {}));
 //# sourceMappingURL=ToDoList.js.map

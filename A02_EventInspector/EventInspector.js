@@ -15,12 +15,12 @@ var L02_EventInspector;
         document.addEventListener("newCustomEvent", customEventTriggered);
         // HTML-Components get assigned an Event-Listener that triggers assigned Handlers when certain Event takes place 
         // ex. div0 gets clicked -> Handler logInfo gets triggered
-        document.querySelector("body").addEventListener("click", logInfo);
-        document.querySelector("body").addEventListener("keyup", logInfo);
-        document.querySelector("#div0").addEventListener("click", logInfo);
-        document.querySelector("#div0").addEventListener("keyup", logInfo);
-        document.querySelector("#div1").addEventListener("click", logInfo);
-        document.querySelector("#div1").addEventListener("keyup", logInfo);
+        document.querySelector("body")?.addEventListener("click", logInfo);
+        document.querySelector("body")?.addEventListener("keyup", logInfo);
+        document.querySelector("#div0")?.addEventListener("click", logInfo);
+        document.querySelector("#div0")?.addEventListener("keyup", logInfo);
+        document.querySelector("#div1")?.addEventListener("click", logInfo);
+        document.querySelector("#div1")?.addEventListener("keyup", logInfo);
     }
     // Handler setInfoBox with Event-Type MouseEvent
     function setInfoBox(_event) {
@@ -31,7 +31,8 @@ var L02_EventInspector;
         // Variable eTarget declared as string -> Target returns Element where it occurs
         let eTarget = _event.target + "";
         // Span -> eTarget, where Mouse-Cursor hovers or clicks -> Information about the Target-Object and the vertical and horizontal Information of where the Cursor is on screen (HTML-Manipulation: innerHTML)
-        document.querySelector("span").innerHTML = eTarget + x + "px" + y + "px";
+        let spanElement = document.querySelector("span");
+        spanElement.innerHTML = eTarget + x + "px" + y + "px";
     }
     // Handler for Console-Output
     // Type: Event with Name: _event

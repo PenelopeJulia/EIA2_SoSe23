@@ -12,18 +12,18 @@ namespace L02_EventInspector {
      document.addEventListener("keyup", logInfo);
 
      // Custom Event -> Button
-     let button = document.getElementById("button");
+     let button = <HTMLBodyElement>document.getElementById("button");
      button.addEventListener("click", customEvent);
      document.addEventListener("newCustomEvent", customEventTriggered);
 
    // HTML-Components get assigned an Event-Listener that triggers assigned Handlers when certain Event takes place 
    // ex. div0 gets clicked -> Handler logInfo gets triggered
-     document.querySelector("body").addEventListener("click", logInfo);
-     document.querySelector("body").addEventListener("keyup", logInfo);
-     document.querySelector("#div0").addEventListener("click", logInfo);
-     document.querySelector("#div0").addEventListener("keyup", logInfo);
-     document.querySelector("#div1").addEventListener("click", logInfo);
-     document.querySelector("#div1").addEventListener("keyup", logInfo);
+     document.querySelector("body")?.addEventListener("click", logInfo);
+     document.querySelector("body")?.addEventListener("keyup", logInfo);
+     document.querySelector("#div0")?.addEventListener("click", logInfo);
+     document.querySelector("#div0")?.addEventListener("keyup", logInfo);
+     document.querySelector("#div1")?.addEventListener("click", logInfo);
+     document.querySelector("#div1")?.addEventListener("keyup", logInfo);
   
  }
 
@@ -38,7 +38,8 @@ namespace L02_EventInspector {
     let eTarget: string = _event.target + "";
 
     // Span -> eTarget, where Mouse-Cursor hovers or clicks -> Information about the Target-Object and the vertical and horizontal Information of where the Cursor is on screen (HTML-Manipulation: innerHTML)
-    document.querySelector("span").innerHTML = eTarget + x + "px" + y + "px";
+   let spanElement = <HTMLBodyElement>document.querySelector("span");
+    spanElement.innerHTML = eTarget + x + "px" + y + "px";
    
  }
 
@@ -54,7 +55,7 @@ function logInfo(_event: Event): void {
 function customEvent(_event: Event): void {
 
     // Grabbing Button from HTML and 
-  let button = document.getElementById("button");
+  let button = <HTMLBodyElement>document.getElementById("button");
 
   // New Custom Event with true 
   let customEvent = new CustomEvent("newCustomEvent", {bubbles: true});
