@@ -8,6 +8,7 @@ var L04_ToDoList;
         // Function generateContent loads Data
         generateContent(L04_ToDoList.data);
         // Accesing Button from DOM with ID
+        // <HTMLBodyElement> -> Forces TS to accept Button as HTMLElement -> resolve Error
         let button = document.querySelector("#createTaskButton");
         // Event-Listener gets installed on Button, if Button is clicked by User Function addTask gets triggered
         button.addEventListener("click", addTask);
@@ -42,6 +43,36 @@ var L04_ToDoList;
                 newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
                 newTaskDiv.classList.add("generateContent");
                 document.body.appendChild(newTaskDiv);
+                // Array
+                let i = {
+                    name: nameValue.value,
+                    task: taskValue.value,
+                    date: dateValue.value,
+                    time: timeValue.value,
+                    comment: commentValue.value,
+                };
+                // create new "p"-Elements
+                let nameNewTask = document.createElement("p");
+                let taskNewTask = document.createElement("p");
+                let commentNewTask = document.createElement("p");
+                let dateNewTask = document.createElement("p");
+                let timeNewTask = document.createElement("p");
+                // Create new HTML-Element -> Edit-Icon
+                let editIcon = document.createElement("i");
+                editIcon.classList.add("edit");
+                // Manipulate HTML through innerHTML and create specific Icon 
+                editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
+                // install an addEventListener on Edit-icon 
+                // When clicked function editTask is triggered
+                editIcon.addEventListener("click", editTask);
+                // Create new Icon -> delete-Icon
+                let deleteIcon = document.createElement("i");
+                deleteIcon.classList.add("delete");
+                // Manipulate HTML through innerHTML and create specific Icon 
+                deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>';
+                // Install an addEventListener on Delete-icon 
+                // When clicked function deleteTask is triggered
+                deleteIcon.addEventListener("click", deleteTask);
                 console.log("generate Content");
             }
         }
@@ -56,37 +87,6 @@ var L04_ToDoList;
         let dateValue = document.getElementById("date");
         let timeValue = document.getElementById("time");
         let commentValue = document.getElementById("comment");
-        // Array
-        let value = {
-            // Assign value to name, task, date, time and comment 
-            name: nameValue.value,
-            task: taskValue.value,
-            date: dateValue.value,
-            time: timeValue.value,
-            comment: commentValue.value,
-        };
-        // create new "p"-Elements
-        let name = document.createElement("p");
-        let task = document.createElement("p");
-        let comment = document.createElement("p");
-        let date = document.createElement("p");
-        let time = document.createElement("p");
-        // Create new HTML-Element -> Edit-Icon
-        let editIcon = document.createElement("i");
-        editIcon.classList.add("edit");
-        // Manipulate HTML through innerHTML and create specific Icon 
-        editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
-        // install an addEventListener on Edit-icon 
-        // When clicked function editTask is triggered
-        editIcon.addEventListener("click", editTask);
-        // Create new Icon -> delete-Icon
-        let deleteIcon = document.createElement("i");
-        deleteIcon.classList.add("delete");
-        // Manipulate HTML through innerHTML and create specific Icon 
-        deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>';
-        // Install an addEventListener on Delete-icon 
-        // When clicked function deleteTask is triggered
-        deleteIcon.addEventListener("click", deleteTask);
     }
     function editTask(_event) {
         console.log("editTask");

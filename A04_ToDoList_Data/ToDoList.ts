@@ -10,6 +10,7 @@ namespace L04_ToDoList {
        generateContent(data);
 
        // Accesing Button from DOM with ID
+       // <HTMLBodyElement> -> Forces TS to accept Button as HTMLElement -> resolve Error
         let button: Element = <HTMLBodyElement>document.querySelector("#createTaskButton");
         // Event-Listener gets installed on Button, if Button is clicked by User Function addTask gets triggered
         button.addEventListener("click", addTask);
@@ -53,6 +54,47 @@ namespace L04_ToDoList {
             newTaskDiv.classList.add("generateContent");
             document.body.appendChild(newTaskDiv);
 
+              // Array
+        let i: Task = {
+
+            
+            name: nameValue.value,
+            task: taskValue.value,
+            date: dateValue.value,
+            time: timeValue.value,
+            comment: commentValue.value,
+        };
+
+        // create new "p"-Elements
+        let nameNewTask: HTMLElement = document.createElement("p");
+
+        let taskNewTask: HTMLElement = document.createElement("p");
+
+        let commentNewTask: HTMLElement = document.createElement("p");
+
+        let dateNewTask: HTMLElement = document.createElement("p");
+
+        let timeNewTask: HTMLElement = document.createElement("p");
+
+        // Create new HTML-Element -> Edit-Icon
+        let editIcon: HTMLElement = document.createElement("i");
+        editIcon.classList.add("edit");
+        // Manipulate HTML through innerHTML and create specific Icon 
+        editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
+        // install an addEventListener on Edit-icon 
+        // When clicked function editTask is triggered
+        editIcon.addEventListener("click", editTask);
+
+
+        // Create new Icon -> delete-Icon
+        let deleteIcon: HTMLElement = document.createElement("i");
+        deleteIcon.classList.add("delete");
+        // Manipulate HTML through innerHTML and create specific Icon 
+        deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>'
+        // Install an addEventListener on Delete-icon 
+        // When clicked function deleteTask is triggered
+        deleteIcon.addEventListener("click", deleteTask);
+
             console.log("generate Content");
         }
 
@@ -73,46 +115,6 @@ namespace L04_ToDoList {
         let timeValue: HTMLInputElement = <HTMLInputElement>document.getElementById("time");
         let commentValue: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
-        // Array
-        let value: Task = {
-
-            // Assign value to name, task, date, time and comment 
-            name: nameValue.value,
-            task: taskValue.value,
-            date: dateValue.value,
-            time: timeValue.value,
-            comment: commentValue.value,
-        };
-
-        // create new "p"-Elements
-        let name: HTMLElement = document.createElement("p");
-
-        let task: HTMLElement = document.createElement("p");
-
-        let comment: HTMLElement = document.createElement("p");
-
-        let date: HTMLElement = document.createElement("p");
-
-        let time: HTMLElement = document.createElement("p");
-
-        // Create new HTML-Element -> Edit-Icon
-        let editIcon: HTMLElement = document.createElement("i");
-        editIcon.classList.add("edit");
-        // Manipulate HTML through innerHTML and create specific Icon 
-        editIcon.innerHTML = '<i "fa-solid fa-pen-to-square"> </i>';
-        // install an addEventListener on Edit-icon 
-        // When clicked function editTask is triggered
-        editIcon.addEventListener("click", editTask);
-
-
-        // Create new Icon -> delete-Icon
-        let deleteIcon: HTMLElement = document.createElement("i");
-        deleteIcon.classList.add("delete");
-        // Manipulate HTML through innerHTML and create specific Icon 
-        deleteIcon.innerHTML = '<i "fa-solid fa-x>" <i/>'
-        // Install an addEventListener on Delete-icon 
-        // When clicked function deleteTask is triggered
-        deleteIcon.addEventListener("click", deleteTask);
     }
 
 
