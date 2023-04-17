@@ -31,7 +31,7 @@ var L04_ToDoList;
             let tasks = _data[category];
             // For-Loop -> Counting up from 0 in Array
             for (let index = 0; index < tasks.length; index++) {
-                // Variables getting assigned value from Array that stores the User-Information
+                // Variables 
                 name = tasks[index].name;
                 task = tasks[index].task;
                 comment = tasks[index].comment;
