@@ -55,21 +55,25 @@ h2 {
    margin-left: 5%;
    margin-top: 4%;
    width: 20%;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #date {
    margin-left: 4%;
-   width: 2%8;
+   width: 28%;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #time {
     margin-top: 4%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .taskBox1 {
     margin-left: 5%;
     margin-top: 3%;
     padding-right: 34%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 textarea {
@@ -78,6 +82,7 @@ textarea {
     padding-right: 25%;
     padding-bottom: 8%;
     border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #createTaskButton {
@@ -88,6 +93,7 @@ textarea {
     height: 20px;
     margin-left: 80%;
     margin: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .exampleTaskDiv {
