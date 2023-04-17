@@ -74,7 +74,7 @@ namespace L04_ToDoList {
         let commentValue: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
         // Array
-        let i: Task = {
+        let value: Task = {
 
             // Assign value to name, task, date, time and comment 
             name: nameValue.value,

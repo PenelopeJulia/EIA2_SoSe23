@@ -57,7 +57,7 @@ var L04_ToDoList;
         let timeValue = document.getElementById("time");
         let commentValue = document.getElementById("comment");
         // Array
-        let i = {
+        let value = {
             // Assign value to name, task, date, time and comment 
             name: nameValue.value,
             task: taskValue.value,
