@@ -53,7 +53,7 @@ var L04_ToDoList;
         // Give newTaskDiv a Class for CSS
         newTaskDiv.id = ("newTaskDiv");
         let addTaskTitleDiv = document.getElementById("addTaskTitleDiv");
-        let bigContainer = document.getElementById("bigContainer");
+        let bigContainer = document.createElement("div");
         // Append bigContainer to addTaskTitleDiv so I can position it under it
         addTaskTitleDiv.appendChild(bigContainer);
         // Append newTaskDiv to addTaskTitleDiv
@@ -65,24 +65,24 @@ var L04_ToDoList;
         let dateInput = document.getElementById("date");
         let timeInput = document.getElementById("time");
         let commentInput = document.getElementById("comment");
-        // Create new "p"-Elements
-        //Create new
-        let nameNewTaskDiv = document.createElement("Div");
+        // Create new "input"-Elements so one can edit task afterwards 
+        //Create new Input-Element and assign it value from nameInput (#name from HTML)
+        let nameNewTaskDiv = document.createElement("div");
         nameNewTaskDiv.innerHTML = nameInput.value;
-        nameNewTaskDiv.classList.add("nameNewtaskDiv");
-        let taskNewTaskDiv = document.createElement("Div");
+        nameNewTaskDiv.classList.add("nameNewTaskDiv");
+        let taskNewTaskDiv = document.createElement("div");
         taskNewTaskDiv.innerHTML = taskInput.value;
-        taskNewTaskDiv.classList.add("taskNewtaskDiv");
-        let commentNewTaskDiv = document.createElement("Div");
+        taskNewTaskDiv.classList.add("taskNewTaskDiv");
+        let commentNewTaskDiv = document.createElement("div");
         commentNewTaskDiv.innerHTML = commentInput.value;
-        commentNewTaskDiv.classList.add("commentNewtaskDiv");
-        let dateNewTaskDiv = document.createElement("Div");
+        commentNewTaskDiv.classList.add("commentNewTaskDiv");
+        let dateNewTaskDiv = document.createElement("div");
         dateNewTaskDiv.innerHTML = dateInput.value;
-        dateNewTaskDiv.classList.add("dateNewtaskDiv");
-        let timeNewTaskDiv = document.createElement("Div");
+        dateNewTaskDiv.classList.add("dateNewTaskDiv");
+        let timeNewTaskDiv = document.createElement("div");
         timeNewTaskDiv.innerHTML = timeInput.value;
-        timeNewTaskDiv.classList.add("timeNewtaskDiv");
-        //console.log(nameInput.value);
+        timeNewTaskDiv.classList.add("timeNewTaskDiv");
+        console.log(nameInput.value);
         //console.log(taskInput.value);
         //console.log(commentInput.value);
         //console.log(dateInput.value);
@@ -98,14 +98,17 @@ var L04_ToDoList;
         newTaskDiv.appendChild(dateNewTaskDiv);
         newTaskDiv.appendChild(timeNewTaskDiv);
         // Create new Icon -> Edit-Icon
-        let editIcon = document.createElement("i");
+        //let editIcon: HTMLElement = document.createElement("i");
         // Give it a class -> CSS
-        editIcon.className = "fa-solid fa-pen-to-square";
+        //editIcon.className = "fa-solid fa-pen-to-square";
         // append editIcon to newTaskDiv
-        newTaskDiv.appendChild(editIcon);
+        //newTaskDiv.appendChild(editIcon);
         // Install an addEventListener on Edit-icon 
         // When clicked function editTask is triggered
-        editIcon.addEventListener("click", editTask);
+        //editIcon.addEventListener("click", editTask);
+        //function editTask(_event: Event): void {
+        //    console.log("editTask");
+        //  }
         // Create new Icon -> Delete-Icon
         let deleteIcon = document.createElement("i");
         // Give it a class for CSS
@@ -115,6 +118,12 @@ var L04_ToDoList;
         // Install an addEventListener on Delete-icon 
         // When clicked function deleteTask is triggered
         deleteIcon.addEventListener("click", deleteTask);
+        // Function deleteTask removes newTaskDiv from Parent bigContainer
+        function deleteTask() {
+            //console.log("Delete");
+            bigContainer.removeChild(newTaskDiv);
+        }
+        ;
         // add Select-Element with three options: in progress, done and incomplete
         let statusList = document.createElement("select");
         let option1 = document.createElement("option");
@@ -129,12 +138,6 @@ var L04_ToDoList;
         statusList.id = ("statusList");
         //append Select-List to newTaskDiv
         newTaskDiv.appendChild(statusList);
-    }
-    function editTask(_event) {
-        console.log("editTask");
-    }
-    function deleteTask(_event) {
-        console.log("deleteTask");
     }
 })(L04_ToDoList || (L04_ToDoList = {}));
 //# sourceMappingURL=ToDoList.js.map

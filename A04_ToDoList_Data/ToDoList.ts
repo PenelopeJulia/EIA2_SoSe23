@@ -63,13 +63,15 @@ namespace L04_ToDoList {
     // Function addTask 
     function addTask(_event: Event): void {
 
+
+
         // Declare new Div locally -> will contain all elements with value from User-Input
         let newTaskDiv: HTMLElement = document.createElement("div");
         // Give newTaskDiv a Class for CSS
         newTaskDiv.id = ("newTaskDiv");
     
         let addTaskTitleDiv: HTMLElement = <HTMLBodyElement>document.getElementById("addTaskTitleDiv");
-        let bigContainer: HTMLElement = <HTMLBodyElement>document.getElementById("bigContainer");
+        let bigContainer: HTMLElement = document.createElement("div");
 
         // Append bigContainer to addTaskTitleDiv so I can position it under it
         addTaskTitleDiv.appendChild(bigContainer);
@@ -84,30 +86,30 @@ namespace L04_ToDoList {
         let timeInput: HTMLInputElement = <HTMLInputElement>document.getElementById("time");
         let commentInput: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
-        // Create new "p"-Elements
+        // Create new "input"-Elements so one can edit task afterwards 
         
-        //Create new
-        let nameNewTaskDiv: HTMLElement = document.createElement("Div");
+        //Create new Input-Element and assign it value from nameInput (#name from HTML)
+        let nameNewTaskDiv: HTMLElement = document.createElement("div");
         nameNewTaskDiv.innerHTML = nameInput.value;
-        nameNewTaskDiv.classList.add("nameNewtaskDiv");
+        nameNewTaskDiv.classList.add("nameNewTaskDiv");
 
-        let taskNewTaskDiv: HTMLElement = document.createElement("Div");
+        let taskNewTaskDiv: HTMLElement = document.createElement("div");
         taskNewTaskDiv.innerHTML = taskInput.value;
-        taskNewTaskDiv.classList.add("taskNewtaskDiv");
+        taskNewTaskDiv.classList.add("taskNewTaskDiv");
 
-        let commentNewTaskDiv: HTMLElement = document.createElement("Div");
+        let commentNewTaskDiv: HTMLElement = document.createElement("div");      
         commentNewTaskDiv.innerHTML = commentInput.value;
-        commentNewTaskDiv.classList.add("commentNewtaskDiv");
+        commentNewTaskDiv.classList.add("commentNewTaskDiv");
 
-        let dateNewTaskDiv: HTMLElement = document.createElement("Div");
+        let dateNewTaskDiv: HTMLElement = document.createElement("div");
         dateNewTaskDiv.innerHTML = dateInput.value;
-        dateNewTaskDiv.classList.add("dateNewtaskDiv");
+        dateNewTaskDiv.classList.add("dateNewTaskDiv");
 
-        let timeNewTaskDiv: HTMLElement = document.createElement("Div");
+        let timeNewTaskDiv: HTMLElement = document.createElement("div"); 
         timeNewTaskDiv.innerHTML = timeInput.value;
-        timeNewTaskDiv.classList.add("timeNewtaskDiv");
+        timeNewTaskDiv.classList.add("timeNewTaskDiv");
 
-        //console.log(nameInput.value);
+        console.log(nameInput.value);
         //console.log(taskInput.value);
         //console.log(commentInput.value);
         //console.log(dateInput.value);
@@ -126,14 +128,18 @@ namespace L04_ToDoList {
         newTaskDiv.appendChild(timeNewTaskDiv);
 
         // Create new Icon -> Edit-Icon
-        let editIcon: HTMLElement = document.createElement("i");
+        //let editIcon: HTMLElement = document.createElement("i");
         // Give it a class -> CSS
-        editIcon.className = "fa-solid fa-pen-to-square";
+        //editIcon.className = "fa-solid fa-pen-to-square";
         // append editIcon to newTaskDiv
-        newTaskDiv.appendChild(editIcon);
+        //newTaskDiv.appendChild(editIcon);
         // Install an addEventListener on Edit-icon 
         // When clicked function editTask is triggered
-        editIcon.addEventListener("click", editTask);
+        //editIcon.addEventListener("click", editTask);
+        
+        //function editTask(_event: Event): void {
+        //    console.log("editTask");
+       //  }
 
         // Create new Icon -> Delete-Icon
         let deleteIcon: HTMLElement = document.createElement("i");
@@ -143,7 +149,12 @@ namespace L04_ToDoList {
         newTaskDiv.appendChild(deleteIcon);
         // Install an addEventListener on Delete-icon 
         // When clicked function deleteTask is triggered
-        deleteIcon.addEventListener("click", deleteTask);
+        deleteIcon.addEventListener("click", deleteTask );
+        // Function deleteTask removes newTaskDiv from Parent bigContainer
+        function deleteTask() {
+            //console.log("Delete");
+            bigContainer.removeChild(newTaskDiv);
+        };
         
         // add Select-Element with three options: in progress, done and incomplete
         let statusList = document.createElement("select");
@@ -165,16 +176,4 @@ namespace L04_ToDoList {
 
     }
 
-
-
-    function editTask(_event: Event): void {
-
-        console.log("editTask");
-    }
-
-    function deleteTask(_event: Event): void {
-        
-        console.log("deleteTask");
-
-    }
 }
