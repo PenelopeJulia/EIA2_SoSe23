@@ -71,7 +71,7 @@ namespace L04_ToDoList {
         newTaskDiv.id = ("newTaskDiv");
     
         let addTaskTitleDiv: HTMLElement = <HTMLBodyElement>document.getElementById("addTaskTitleDiv");
-        let bigContainer: HTMLElement = document.createElement("div");
+        let bigContainer: HTMLElement = document.createElement("bigContainer");
 
         // Append bigContainer to addTaskTitleDiv so I can position it under it
         addTaskTitleDiv.appendChild(bigContainer);

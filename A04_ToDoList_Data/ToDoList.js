@@ -53,7 +53,7 @@ var L04_ToDoList;
         // Give newTaskDiv a Class for CSS
         newTaskDiv.id = ("newTaskDiv");
         let addTaskTitleDiv = document.getElementById("addTaskTitleDiv");
-        let bigContainer = document.createElement("div");
+        let bigContainer = document.createElement("bigContainer");
         // Append bigContainer to addTaskTitleDiv so I can position it under it
         addTaskTitleDiv.appendChild(bigContainer);
         // Append newTaskDiv to addTaskTitleDiv
