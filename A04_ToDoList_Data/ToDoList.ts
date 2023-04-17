@@ -14,6 +14,7 @@ namespace L04_ToDoList {
         let button: Element = <HTMLBodyElement>document.querySelector("#createTaskButton");
         // Event-Listener gets installed on Button, if Button is clicked by User Function addTask gets triggered
         button.addEventListener("click", addTask);
+        
     }
 
     // Function generate Content loads Data stored in Array in Data.ts
@@ -53,17 +54,6 @@ namespace L04_ToDoList {
             newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
             newTaskDiv.classList.add("generateContent");
             document.body.appendChild(newTaskDiv);
-
-              // Array
-        let i: Task = {
-
-            
-            name: nameValue.value,
-            task: taskValue.value,
-            date: dateValue.value,
-            time: timeValue.value,
-            comment: commentValue.value,
-        };
 
         // create new "p"-Elements
         let nameNewTask: HTMLElement = document.createElement("p");
@@ -114,6 +104,17 @@ namespace L04_ToDoList {
         let dateValue: HTMLInputElement = <HTMLInputElement>document.getElementById("date");
         let timeValue: HTMLInputElement = <HTMLInputElement>document.getElementById("time");
         let commentValue: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
+
+              // Array
+              let i: Task = {
+
+                name: nameValue.value,
+                task: taskValue.value,
+                date: dateValue.value,
+                time: timeValue.value,
+                comment: commentValue.value,
+            };
+
 
     }
 

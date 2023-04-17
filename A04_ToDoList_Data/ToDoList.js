@@ -43,14 +43,6 @@ var L04_ToDoList;
                 newTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
                 newTaskDiv.classList.add("generateContent");
                 document.body.appendChild(newTaskDiv);
-                // Array
-                let i = {
-                    name: nameValue.value,
-                    task: taskValue.value,
-                    date: dateValue.value,
-                    time: timeValue.value,
-                    comment: commentValue.value,
-                };
                 // create new "p"-Elements
                 let nameNewTask = document.createElement("p");
                 let taskNewTask = document.createElement("p");
@@ -87,6 +79,14 @@ var L04_ToDoList;
         let dateValue = document.getElementById("date");
         let timeValue = document.getElementById("time");
         let commentValue = document.getElementById("comment");
+        // Array
+        let i = {
+            name: nameValue.value,
+            task: taskValue.value,
+            date: dateValue.value,
+            time: timeValue.value,
+            comment: commentValue.value,
+        };
     }
     function editTask(_event) {
         console.log("editTask");
