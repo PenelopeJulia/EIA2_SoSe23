@@ -52,11 +52,13 @@ var L04_ToDoList;
         let newTaskDiv = document.createElement("div");
         // Give newTaskDiv a Class for CSS
         newTaskDiv.id = ("newTaskDiv");
+        // Get addTaskTitleDiv by ID
         let addTaskTitleDiv = document.getElementById("addTaskTitleDiv");
+        // Create new Div-Element
         let bigContainer = document.createElement("bigContainer");
         // Append bigContainer to addTaskTitleDiv so I can position it under it
         addTaskTitleDiv.appendChild(bigContainer);
-        // Append newTaskDiv to addTaskTitleDiv
+        // Append newTaskDiv to bigContainer
         bigContainer.appendChild(newTaskDiv);
         // Declare variables
         // Get input and textarea by ID from DOM
@@ -67,36 +69,38 @@ var L04_ToDoList;
         let commentInput = document.getElementById("comment");
         // Create new "input"-Elements so one can edit task afterwards 
         //Create new Input-Element and assign it value from nameInput (#name from HTML)
-        let nameNewTaskDiv = document.createElement("div");
+        let nameNewTaskDiv = document.createElement("input");
         nameNewTaskDiv.innerHTML = nameInput.value;
         nameNewTaskDiv.classList.add("nameNewTaskDiv");
-        let taskNewTaskDiv = document.createElement("div");
+        let taskNewTaskDiv = document.createElement("input");
         taskNewTaskDiv.innerHTML = taskInput.value;
         taskNewTaskDiv.classList.add("taskNewTaskDiv");
-        let commentNewTaskDiv = document.createElement("div");
+        let commentNewTaskDiv = document.createElement("textarea");
         commentNewTaskDiv.innerHTML = commentInput.value;
         commentNewTaskDiv.classList.add("commentNewTaskDiv");
-        let dateNewTaskDiv = document.createElement("div");
+        let dateNewTaskDiv = document.createElement("input");
+        dateNewTaskDiv.type = "date";
         dateNewTaskDiv.innerHTML = dateInput.value;
         dateNewTaskDiv.classList.add("dateNewTaskDiv");
-        let timeNewTaskDiv = document.createElement("div");
+        let timeNewTaskDiv = document.createElement("Input");
+        timeNewTaskDiv.type = "time";
         timeNewTaskDiv.innerHTML = timeInput.value;
         timeNewTaskDiv.classList.add("timeNewTaskDiv");
         console.log(nameInput.value);
-        //console.log(taskInput.value);
-        //console.log(commentInput.value);
-        //console.log(dateInput.value);
-        //console.log(timeInput.value);
-        nameInput.value = "";
-        taskInput.value = "";
-        commentInput.value = "";
-        dateInput.value = "";
-        timeInput.value = "";
+        console.log(taskInput.value);
+        console.log(commentInput.value);
+        console.log(dateInput.value);
+        console.log(timeInput.value);
         newTaskDiv.appendChild(nameNewTaskDiv);
         newTaskDiv.appendChild(taskNewTaskDiv);
         newTaskDiv.appendChild(commentNewTaskDiv);
         newTaskDiv.appendChild(dateNewTaskDiv);
         newTaskDiv.appendChild(timeNewTaskDiv);
+        nameInput.value = "";
+        taskInput.value = "";
+        commentInput.value = "";
+        dateInput.value = "";
+        timeInput.value = "";
         // Create new Icon -> Edit-Icon
         //let editIcon: HTMLElement = document.createElement("i");
         // Give it a class -> CSS

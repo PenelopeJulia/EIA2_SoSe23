@@ -96,7 +96,7 @@ textarea {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.exampleTaskDiv {
+#exampleTaskDiv {
     margin-top: 26%;
     float: left;
     width: 360px;
