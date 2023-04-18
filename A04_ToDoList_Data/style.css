@@ -1,12 +1,12 @@
 body {
+    position: fixed;
     background-color: #f7e9c6;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 17px;
 }
 
 #addTaskTitleDiv {
-    width: 400px;
-    margin: 60px auto;
+    margin-top: 20px;
     position: fixed;
     background-color: #d28e1a;
     border-radius: 20px;
@@ -19,6 +19,7 @@ body {
 }
 
 #bigContainer {
+    margin-top: 800px;
     width: 400px;
     height: 400px;
 }
@@ -27,14 +28,14 @@ body {
 h1 {
     position: fixed;
     text-align: center;
-    top: 8%;
+    top: 4%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h2 {
     position: fixed;
     text-align: center;
-    top: 15%;
+    top: 11%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: x-small;
 }
@@ -44,7 +45,7 @@ h2 {
 
 .box1 {
     position: fixed;
-    margin-top: 70px;
+    margin-top: 80px;
     width: 400px;
     height: 170px;
     border-radius: 20px;
@@ -69,20 +70,24 @@ h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.taskBox1 {
+#task {
     margin-left: 5%;
     margin-top: 3%;
     padding-right: 34%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-textarea {
+#comment {
     margin-left: 5%;
     margin-top: 3%;
     padding-right: 25%;
     padding-bottom: 8%;
     border: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input {
+    border: none;
 }
 
 #createTaskButton {
@@ -96,8 +101,10 @@ textarea {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#exampleTaskDiv {
-    margin-top: 26%;
+
+
+.exampleTaskDiv {
+    top: 350px;
     float: left;
     width: 360px;
     height: 120px;
@@ -107,19 +114,21 @@ textarea {
     padding: 20px;
 }
 
+#nameExampleDiv {
+    background-color: white;
+}
+
+
+
 
 #newTaskDiv {
-    margin-top: 203%;
+    positon: ;
+    margin-top: 5%;
     width: 400px;
     height: 170px;
     border-radius: 20px;
     background-color: #eed6cc;
 }
-
-input {
-    border: none;
-}
-
 
 .nameNewTaskDiv {
     background-color: white;
@@ -154,6 +163,7 @@ input {
 }
 
 .commentNewTaskDiv {
+    margin-top: 5%;
     background-color: white;
     border-radius: 10px;
     padding: 3px;
@@ -166,8 +176,7 @@ input {
 }
 
 .fa-solid fa-x{
-    position: relative;
-    right: 20px;
+    margin-right: 5%;
 }
 
 

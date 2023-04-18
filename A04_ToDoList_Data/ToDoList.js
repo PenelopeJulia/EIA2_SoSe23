@@ -43,6 +43,9 @@ var L04_ToDoList;
             exampleTaskDiv.classList.add("exampleTaskDiv");
             //append newTaskDiv to addTaskTitleDiv
             addTaskTitleDiv.appendChild(exampleTaskDiv);
+            let nameExampleDiv = document.createElement("p");
+            nameExampleDiv.innerHTML = name + "";
+            nameExampleDiv.id = "nameexampleDiv";
             console.log("generate Content");
         }
     }
@@ -55,7 +58,7 @@ var L04_ToDoList;
         // Get addTaskTitleDiv by ID
         let addTaskTitleDiv = document.getElementById("addTaskTitleDiv");
         // Create new Div-Element
-        let bigContainer = document.createElement("bigContainer");
+        let bigContainer = document.getElementById("bigContainer");
         // Append bigContainer to addTaskTitleDiv so I can position it under it
         addTaskTitleDiv.appendChild(bigContainer);
         // Append newTaskDiv to bigContainer
