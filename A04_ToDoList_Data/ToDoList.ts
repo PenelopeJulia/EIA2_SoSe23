@@ -42,22 +42,6 @@ namespace L04_ToDoList {
                 date = data[index].date;
                 time = data[index].time;
 
-                // Creating new Div-Element
-                let exampleTaskDiv: HTMLElement = document.createElement("div");
-                let addTaskTitleDiv: HTMLElement = <HTMLBodyElement>document.getElementById("addTaskTitleDiv");
-
-                // Manipulating HTML by adding new DIV to DOM
-                exampleTaskDiv.innerHTML = name + "" + task + "" + comment + "" + date + "" + time + "";
-                // Give newTaskDiv a Class for CSS
-                exampleTaskDiv.classList.add("exampleTaskDiv");
-                //append newTaskDiv to addTaskTitleDiv
-                addTaskTitleDiv.appendChild(exampleTaskDiv);
-
-                let nameExampleDiv: HTMLElement = document.createElement("p");
-                nameExampleDiv.innerHTML = name + "";
-                nameExampleDiv.id = "nameexampleDiv";
-
-                console.log("generate Content");
         }
 
 
@@ -93,25 +77,23 @@ namespace L04_ToDoList {
         // Create new "input"-Elements so one can edit task afterwards 
         
         //Create new Input-Element and assign it value from nameInput (#name from HTML)
-        let nameNewTaskDiv: HTMLInputElement = <HTMLInputElement>document.createElement("input");
+        let nameNewTaskDiv: HTMLElement = <HTMLInputElement>document.createElement("div");
         nameNewTaskDiv.innerHTML = nameInput.value;
         nameNewTaskDiv.classList.add("nameNewTaskDiv");
 
-        let taskNewTaskDiv: HTMLInputElement = <HTMLInputElement>document.createElement("input");
+        let taskNewTaskDiv: HTMLElement = <HTMLInputElement>document.createElement("div");
         taskNewTaskDiv.innerHTML = taskInput.value;
         taskNewTaskDiv.classList.add("taskNewTaskDiv");
 
-        let commentNewTaskDiv: HTMLTextAreaElement = <HTMLTextAreaElement>document.createElement("textarea");      
+        let commentNewTaskDiv: HTMLElement = <HTMLElement>document.createElement("div");      
         commentNewTaskDiv.innerHTML = commentInput.value;
         commentNewTaskDiv.classList.add("commentNewTaskDiv");
 
-        let dateNewTaskDiv: HTMLInputElement = <HTMLInputElement>document.createElement("input");
-        dateNewTaskDiv.type = "date";
+        let dateNewTaskDiv: HTMLElement = <HTMLInputElement>document.createElement("div");
         dateNewTaskDiv.innerHTML = dateInput.value;
         dateNewTaskDiv.classList.add("dateNewTaskDiv");
 
-        let timeNewTaskDiv: HTMLInputElement = <HTMLInputElement>document.createElement("Input"); 
-        timeNewTaskDiv.type = "time";
+        let timeNewTaskDiv: HTMLElement = <HTMLInputElement>document.createElement("div"); 
         timeNewTaskDiv.innerHTML = timeInput.value;
         timeNewTaskDiv.classList.add("timeNewTaskDiv");
 
