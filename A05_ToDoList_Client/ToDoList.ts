@@ -21,9 +21,13 @@ namespace L05_ToDoList {
 
         console.log("handeLoad triggered");
 
+        // Fetching JSON and 
         let response: Response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/Data.json");
+        // Assign Result of text() to offer
         let offer: string = await response.text();
+        // Assigns result of calling JSON on offer so we can use it
         let data: Data = JSON.parse(offer);
+
        // Accesing Button from DOM with ID
        // <HTMLBodyElement> -> Forces TS to accept Button as HTMLElement -> resolve Error
         let button: Element = <HTMLBodyElement>document.querySelector("#addTaskButton");
@@ -35,47 +39,49 @@ namespace L05_ToDoList {
         generateContent(data);
     }   
 
+
     async function sendTask(_event: Event): Promise<void> {
         console.log("Input sent");
 
+        // Declare new Variable form and get from HTML
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
+        // New Variable formData of Type FormData  -> form argument
         let formData: FormData = new FormData(form);
+        // formData as argument contained in specified form
         let query: URLSearchParams = new URLSearchParams(<any>formData);
+        // Waiting for response from Server
         await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/ToDoList.html" + query.toString());
         alert("Input received");
 
     }
 
-    // Function generate Content loads Data stored in Array in Data.ts
-    // Data from User is caught and pushed into Array Task[] 
-    // New Elements are created, Data from Task[] is pushed into new Elements 
-    // New Elements are pushed into HTML for User to see on page
     function generateContent(_data: Data): void {
         
-        // Finding Task-Characteristics ->  Predefining them for me to use in this namespace
+        // Finding Task-Characteristics ->  Predefining them for me to use
         let name: string;
         let task: string;
         let comment: string;
         let date: string;
         let time: string;
 
+        // Go through Data
         for (let tasks in _data) {
 
+            // Create new Variable of Type Array Task[] 
             let data: Task[] = _data[tasks];
 
             // For-Loop -> Counting up from 0 in Array
             for (let index: number = 0; index < data.length; index++) {
 
                 // Attributes from Array assigned to according Variables
-                // 
                 name = data[index].name;
                 task = data[index].task;
                 comment = data[index].comment;
                 date = data[index].date;
                 time = data[index].time;
 
+                // Example Text from Data.json
                 let createDiv: HTMLElement = document.createElement("div");
-
                 createDiv.innerHTML = name + " " + task + " " + comment + " " + date + " " + time + " ";
                 createDiv.classList.add("dataList");
                 document.body.appendChild(createDiv);
@@ -85,7 +91,6 @@ namespace L05_ToDoList {
 
     }
 
-    // Function addTask 
     function addTask(_event: Event): void {
 
         // Declare variables and get input and textarea by ID from DOM
@@ -95,6 +100,7 @@ namespace L05_ToDoList {
         let timeInput: HTMLInputElement = <HTMLInputElement>document.getElementById("time");
         let commentInput: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("comment");
 
+        //Assign Values to Attributes from Array
         let i: Task = {
 
             name: nameInput.value,
@@ -104,8 +110,11 @@ namespace L05_ToDoList {
             time: timeInput.value,
         };
 
+        // Function addInput gets data from i where we assigned input-value to elements of array
         addInput(i);
 
+
+        // Remove Input-Value
         nameInput.value = "";
         taskInput.value = "";
         commentInput.value = "";
@@ -114,6 +123,7 @@ namespace L05_ToDoList {
 
     }
 
+    
     function addInput(_data: Task): void {
         console.log("Add Item")
 
@@ -122,8 +132,8 @@ namespace L05_ToDoList {
         // Give newTaskDiv a Class for CSS
         newTaskDiv.classList.add("newTaskDiv");
        
+        // Create new P where we Input-Value-Text
         let label: HTMLElement = document.createElement("label");
-        let date: HTMLElement = document.createElement("p");
 
         // Create new Icon -> Delete-Icon
         let deleteIcon: HTMLElement = document.createElement("i");
@@ -131,6 +141,7 @@ namespace L05_ToDoList {
         deleteIcon.className = "fa-solid fa-x";
         // Append deleteIcon to newTaskDiv
         newTaskDiv.append(deleteIcon);
+
         // Install an addEventListener on Delete-icon 
         // When clicked function deleteTask is triggered
         deleteIcon.addEventListener("click", deleteTask );
@@ -154,13 +165,15 @@ namespace L05_ToDoList {
         statusList.add(option3);
         statusList.id = ("statusList");
 
+        // Assign Value to new P-Element in newTaskDiv
         label.innerHTML += _data.name + " " + _data.task + " " + _data.comment +" " + _data.date + " " + _data.time + " ";
 
+        // Append new Items to newTaskDiv
         newTaskDiv.appendChild(statusList);
         newTaskDiv.appendChild(deleteIcon);
-        newTaskDiv.appendChild(date);
         newTaskDiv.appendChild(label);
        
+        // Get List Element and append newTaskDiv to list
         let list: HTMLElement = <HTMLElement>document.querySelector(".list");
         list.appendChild(newTaskDiv);
     }
