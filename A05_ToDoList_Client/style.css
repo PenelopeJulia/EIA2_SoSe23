@@ -68,9 +68,9 @@ h1 {
 
 #date {
     position: absolute;
-    margin-top: -33px;
-    margin-left: -40px;
-    height: 25px;
+    margin-top: -85px;
+    margin-left: 190px;
+    height: 21px;
     width: 80px;
 }
 
@@ -89,8 +89,8 @@ h1 {
     border: none;
     border-radius: 20px;
     position: absolute;
-    top: 150px;
-    right: 40px;
+    top: 140px;
+    right: 45px;
 }
 
 #addTaskButton:hover {
