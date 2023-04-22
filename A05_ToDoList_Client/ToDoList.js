@@ -6,7 +6,7 @@ var L05_ToDoList;
     // Function handleLoad calls Function generateContent and grabs Button from DOM
     async function handleLoad(_event) {
         console.log("handeLoad triggered");
-        let response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/Data.json");
+        let response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/Data.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
         // Accesing Button from DOM with ID
@@ -23,7 +23,7 @@ var L05_ToDoList;
         let form = document.querySelector("form");
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
-        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/ToDoList.html?" + query.toString());
+        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/ToDoList.html" + query.toString());
         alert("Input received");
     }
     // Function generate Content loads Data stored in Array in Data.ts

@@ -21,7 +21,7 @@ namespace L05_ToDoList {
 
         console.log("handeLoad triggered");
 
-        let response: Response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/Data.json");
+        let response: Response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/Data.json");
         let offer: string = await response.text();
         let data: Data = JSON.parse(offer);
 
@@ -43,7 +43,7 @@ namespace L05_ToDoList {
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/ToDoList.html?" + query.toString());
+        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/ToDoList.html" + query.toString());
         alert("Input received");
 
     }
