@@ -110,3 +110,14 @@ ul {
     top: 50px;
     margin-top: 2%;
 }
+
+i {
+    position: absolute;
+    top: 8px !important;
+    right: 10px;
+}
+
+#statusList {
+    margin-top: 7px !important;
+    margin-left: 270px !important;
+}

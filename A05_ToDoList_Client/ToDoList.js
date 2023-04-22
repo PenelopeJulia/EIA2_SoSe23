@@ -110,7 +110,7 @@ var L05_ToDoList;
         option3.text = "incomplete";
         statusList.add(option3);
         statusList.id = ("statusList");
-        label.innerHTML += _data.name + ", " + _data.task + ", " + _data.comment + ", " + _data.date + ", " + _data.time + ", ";
+        label.innerHTML += _data.name + " " + _data.task + " " + _data.comment + " " + _data.date + " " + _data.time + " ";
         newTaskDiv.appendChild(statusList);
         newTaskDiv.appendChild(deleteIcon);
         newTaskDiv.appendChild(date);
