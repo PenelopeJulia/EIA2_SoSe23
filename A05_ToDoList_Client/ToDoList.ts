@@ -24,8 +24,6 @@ namespace L05_ToDoList {
         let response: Response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/Data.json");
         let offer: string = await response.text();
         let data: Data = JSON.parse(offer);
-
-
        // Accesing Button from DOM with ID
        // <HTMLBodyElement> -> Forces TS to accept Button as HTMLElement -> resolve Error
         let button: Element = <HTMLBodyElement>document.querySelector("#addTaskButton");
@@ -113,6 +111,7 @@ namespace L05_ToDoList {
         commentInput.value = "";
         dateInput.value = "";
         timeInput.value = "";
+
     }
 
     function addInput(_data: Task): void {
