@@ -12,7 +12,10 @@ namespace L04_ToDoList {
 
     // Data is predefined
     export let data: Task[] = [
-        { 
+
+        // Array with chacarcteristics as following: name, newTask... 
+
+        {
                 name: "Anna",
                 task: "Wischen",
                 comment:"Gründlich!",
@@ -22,4 +25,3 @@ namespace L04_ToDoList {
     
     ]
 }
-

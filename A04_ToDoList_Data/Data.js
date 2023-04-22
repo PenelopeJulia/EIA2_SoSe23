@@ -3,6 +3,7 @@ var L04_ToDoList;
 (function (L04_ToDoList) {
     // Data is predefined
     L04_ToDoList.data = [
+        // Array with chacarcteristics as following: name, newTask... 
         {
             name: "Anna",
             task: "Wischen",
