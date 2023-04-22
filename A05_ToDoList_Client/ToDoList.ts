@@ -1,4 +1,4 @@
-namespace L04_ToDoList {
+namespace L05_ToDoList {
 
     // Load-Listener is installed -> when page loads function handleLoad is triggered
     window.addEventListener("load", handleLoad);
@@ -21,7 +21,7 @@ namespace L04_ToDoList {
 
         console.log("handeLoad triggered");
 
-        let response: Response = await fetch("");
+        let response: Response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/Data.json");
         let offer: string = await response.text();
         let data: Data = JSON.parse(offer);
 
@@ -43,7 +43,7 @@ namespace L04_ToDoList {
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        await fetch("" + query.toString());
+        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/ToDoList.html?" + query.toString());
         alert("Input received");
 
     }
@@ -62,6 +62,8 @@ namespace L04_ToDoList {
         let time: string;
 
         for (let tasks in _data) {
+
+            let data: Task[] = _data[tasks];
 
             // For-Loop -> Counting up from 0 in Array
             for (let index: number = 0; index < data.length; index++) {
@@ -106,22 +108,14 @@ namespace L04_ToDoList {
 
         addInput(i);
 
-        console.log(nameInput.value);
-        console.log(taskInput.value);
-        console.log(commentInput.value);
-        console.log(dateInput.value);
-        console.log(timeInput.value);
-
         nameInput.value = "";
         taskInput.value = "";
         commentInput.value = "";
         dateInput.value = "";
         timeInput.value = "";
-       
-
     }
 
-    function addInput(_element: Task): void {
+    function addInput(_data: Task): void {
         console.log("Add Item")
 
         // Declare new Div locally -> will contain all elements with value from User-Input
@@ -129,28 +123,8 @@ namespace L04_ToDoList {
         // Give newTaskDiv a Class for CSS
         newTaskDiv.classList.add("newTaskDiv");
        
-        //Create new P-Elements and assign it value from Input
-        let nameNewTaskDiv: HTMLElement = <HTMLElement>document.createElement("p");
-        nameNewTaskDiv.innerHTML += _element.name;
-        nameNewTaskDiv.classList.add("nameNewTaskDiv");
-
-        let taskNewTaskDiv: HTMLElement = <HTMLInputElement>document.createElement("p");
-        taskNewTaskDiv.innerHTML += _element.task; 
-        taskNewTaskDiv.classList.add("taskNewTaskDiv");
-
-        let commentNewTaskDiv: HTMLElement = <HTMLElement>document.createElement("p");
-        commentNewTaskDiv.innerHTML += _element.comment;      
-        commentNewTaskDiv.classList.add("commentNewTaskDiv");
-
-        let dateNewTaskDiv: HTMLElement = <HTMLElement>document.createElement("p");
-        dateNewTaskDiv.innerHTML += _element.date;    
-        dateNewTaskDiv.classList.add("dateNewTaskDiv");
-
-        let timeNewTaskDiv: HTMLElement = <HTMLElement>document.createElement("p"); 
-        timeNewTaskDiv.innerHTML += _element.time;    
-        timeNewTaskDiv.classList.add("timeNewTaskDiv");
-
-        newTaskDiv.append(nameNewTaskDiv, taskNewTaskDiv, commentNewTaskDiv, dateNewTaskDiv, timeNewTaskDiv);
+        let label: HTMLElement = document.createElement("label");
+        let date: HTMLElement = document.createElement("p");
 
         // Create new Icon -> Delete-Icon
         let deleteIcon: HTMLElement = document.createElement("i");
@@ -161,6 +135,10 @@ namespace L04_ToDoList {
         // Install an addEventListener on Delete-icon 
         // When clicked function deleteTask is triggered
         deleteIcon.addEventListener("click", deleteTask );
+
+        function deleteTask(_event: Event) {
+            list.removeChild(newTaskDiv)
+        };
         
         // Add Select-Element with three options: in progress, done and incomplete
         let statusList = document.createElement("select");
@@ -177,15 +155,14 @@ namespace L04_ToDoList {
         statusList.add(option3);
         statusList.id = ("statusList");
 
-        //append Select-List to newTaskDiv
-        newTaskDiv.append(statusList);
+        label.innerHTML += _data.name + ", " + _data.task + ", " + _data.comment +", " + _data.date + ", " + _data.time + ", ";
+
+        newTaskDiv.appendChild(statusList);
+        newTaskDiv.appendChild(deleteIcon);
+        newTaskDiv.appendChild(date);
+        newTaskDiv.appendChild(label);
        
         let list: HTMLElement = <HTMLElement>document.querySelector(".list");
-        list.append(newTaskDiv);
+        list.appendChild(newTaskDiv);
     }
-
-    function deleteTask() {
-        console.log("Deleted Task");
-        this.parentElement.remove();
-    };
 }

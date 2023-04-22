@@ -1,12 +1,12 @@
 "use strict";
-var L04_ToDoList;
-(function (L04_ToDoList) {
+var L05_ToDoList;
+(function (L05_ToDoList) {
     // Load-Listener is installed -> when page loads function handleLoad is triggered
     window.addEventListener("load", handleLoad);
     // Function handleLoad calls Function generateContent and grabs Button from DOM
     async function handleLoad(_event) {
         console.log("handeLoad triggered");
-        let response = await fetch("");
+        let response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/Data.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
         // Accesing Button from DOM with ID
@@ -23,7 +23,7 @@ var L04_ToDoList;
         let form = document.querySelector("form");
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
-        await fetch("" + query.toString());
+        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/IA2_SoSe23/A05_ToDoList_Client/ToDoList.html?" + query.toString());
         alert("Input received");
     }
     // Function generate Content loads Data stored in Array in Data.ts
@@ -38,15 +38,16 @@ var L04_ToDoList;
         let date;
         let time;
         for (let tasks in _data) {
+            let data = _data[tasks];
             // For-Loop -> Counting up from 0 in Array
-            for (let index = 0; index < L04_ToDoList.data.length; index++) {
+            for (let index = 0; index < data.length; index++) {
                 // Attributes from Array assigned to according Variables
                 // 
-                name = L04_ToDoList.data[index].name;
-                task = L04_ToDoList.data[index].task;
-                comment = L04_ToDoList.data[index].comment;
-                date = L04_ToDoList.data[index].date;
-                time = L04_ToDoList.data[index].time;
+                name = data[index].name;
+                task = data[index].task;
+                comment = data[index].comment;
+                date = data[index].date;
+                time = data[index].time;
                 let createDiv = document.createElement("div");
                 createDiv.innerHTML = name + " " + task + " " + comment + " " + date + " " + time + " ";
                 createDiv.classList.add("dataList");
@@ -70,40 +71,20 @@ var L04_ToDoList;
             time: timeInput.value,
         };
         addInput(i);
-        console.log(nameInput.value);
-        console.log(taskInput.value);
-        console.log(commentInput.value);
-        console.log(dateInput.value);
-        console.log(timeInput.value);
         nameInput.value = "";
         taskInput.value = "";
         commentInput.value = "";
         dateInput.value = "";
         timeInput.value = "";
     }
-    function addInput(_element) {
+    function addInput(_data) {
         console.log("Add Item");
         // Declare new Div locally -> will contain all elements with value from User-Input
         let newTaskDiv = document.createElement("div");
         // Give newTaskDiv a Class for CSS
         newTaskDiv.classList.add("newTaskDiv");
-        //Create new P-Elements and assign it value from Input
-        let nameNewTaskDiv = document.createElement("p");
-        nameNewTaskDiv.innerHTML += _element.name;
-        nameNewTaskDiv.classList.add("nameNewTaskDiv");
-        let taskNewTaskDiv = document.createElement("p");
-        taskNewTaskDiv.innerHTML += _element.task;
-        taskNewTaskDiv.classList.add("taskNewTaskDiv");
-        let commentNewTaskDiv = document.createElement("p");
-        commentNewTaskDiv.innerHTML += _element.comment;
-        commentNewTaskDiv.classList.add("commentNewTaskDiv");
-        let dateNewTaskDiv = document.createElement("p");
-        dateNewTaskDiv.innerHTML += _element.date;
-        dateNewTaskDiv.classList.add("dateNewTaskDiv");
-        let timeNewTaskDiv = document.createElement("p");
-        timeNewTaskDiv.innerHTML += _element.time;
-        timeNewTaskDiv.classList.add("timeNewTaskDiv");
-        newTaskDiv.append(nameNewTaskDiv, taskNewTaskDiv, commentNewTaskDiv, dateNewTaskDiv, timeNewTaskDiv);
+        let label = document.createElement("label");
+        let date = document.createElement("p");
         // Create new Icon -> Delete-Icon
         let deleteIcon = document.createElement("i");
         // Give it a class for CSS
@@ -113,6 +94,10 @@ var L04_ToDoList;
         // Install an addEventListener on Delete-icon 
         // When clicked function deleteTask is triggered
         deleteIcon.addEventListener("click", deleteTask);
+        function deleteTask(_event) {
+            list.removeChild(newTaskDiv);
+        }
+        ;
         // Add Select-Element with three options: in progress, done and incomplete
         let statusList = document.createElement("select");
         let option1 = document.createElement("option");
@@ -125,15 +110,13 @@ var L04_ToDoList;
         option3.text = "incomplete";
         statusList.add(option3);
         statusList.id = ("statusList");
-        //append Select-List to newTaskDiv
-        newTaskDiv.append(statusList);
+        label.innerHTML += _data.name + ", " + _data.task + ", " + _data.comment + ", " + _data.date + ", " + _data.time + ", ";
+        newTaskDiv.appendChild(statusList);
+        newTaskDiv.appendChild(deleteIcon);
+        newTaskDiv.appendChild(date);
+        newTaskDiv.appendChild(label);
         let list = document.querySelector(".list");
-        list.append(newTaskDiv);
+        list.appendChild(newTaskDiv);
     }
-    function deleteTask() {
-        console.log("Deleted Task");
-        this.parentElement.remove();
-    }
-    ;
-})(L04_ToDoList || (L04_ToDoList = {}));
+})(L05_ToDoList || (L05_ToDoList = {}));
 //# sourceMappingURL=ToDoList.js.map
