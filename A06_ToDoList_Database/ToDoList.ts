@@ -1,4 +1,4 @@
-namespace L06_ToDoList {
+namespace L06_ToDoList_Database {
 
     // Load-Listener is installed -> when page loads function handleLoad is triggered
     window.addEventListener("load", handleLoad);
@@ -73,7 +73,7 @@ namespace L06_ToDoList {
 
     }
 
-    async function generateContent(_data: Data): void {
+    async function generateContent(_data: Data):Promise<void> {
         
         // Finding Task-Characteristics ->  Predefining them for me to use
         let name: string;

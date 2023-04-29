@@ -1,6 +1,6 @@
 "use strict";
-var L06_ToDoList;
-(function (L06_ToDoList) {
+var L06_ToDoList_Database;
+(function (L06_ToDoList_Database) {
     // Load-Listener is installed -> when page loads function handleLoad is triggered
     window.addEventListener("load", handleLoad);
     let json = {};
@@ -147,5 +147,5 @@ var L06_ToDoList;
         let list = document.querySelector(".list");
         list.appendChild(newTaskDiv);
     }
-})(L06_ToDoList || (L06_ToDoList = {}));
+})(L06_ToDoList_Database || (L06_ToDoList_Database = {}));
 //# sourceMappingURL=ToDoList.js.map
