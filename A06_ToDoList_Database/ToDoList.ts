@@ -1,4 +1,4 @@
-namespace L05_ToDoList {
+namespace L06_ToDoList {
 
     // Load-Listener is installed -> when page loads function handleLoad is triggered
     window.addEventListener("load", handleLoad);
@@ -15,6 +15,12 @@ namespace L05_ToDoList {
         [tasks: string]: Task[];
     }
 
+    interface FormDataJSON {
+        [key: string]: FormDataEntryValue | FormDataEntryValue[];
+    }
+
+    let json: FormDataJSON = {};
+
 
     // Function handleLoad calls Function generateContent and grabs Button from DOM
     async function handleLoad(_event: Event): Promise<void> {
@@ -22,7 +28,7 @@ namespace L05_ToDoList {
         console.log("handeLoad triggered");
 
         // Fetching JSON and 
-        let response: Response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/Data.json");
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~vogelpen/Database/?command=find&collection=Data");
         // Assign Result of text() to offer
         let offer: string = await response.text();
         // Assigns result of calling JSON on offer so we can use it
@@ -43,19 +49,31 @@ namespace L05_ToDoList {
     async function sendTask(_event: Event): Promise<void> {
         console.log("Input sent");
 
-        // Declare new Variable form and get from HTML
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
-        // New Variable formData of Type FormData  -> form argument
         let formData: FormData = new FormData(form);
-        // formData as argument contained in specified form
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        // Waiting for response from Server
-        await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/ToDoList.html" + query.toString());
+      
+
+        for (let key of formData.keys())
+            if (!json[key]) {
+                let values: FormDataEntryValue[] = formData.getAll(key);
+                json[key] = values.length > 1 ? values : values[0];
+            }
+
+        let query: URLSearchParams = new URLSearchParams();
+        query.set("command", "insert");
+        query.set("collection", "Data");
+        query.set("data", JSON.stringify(json));
+        console.log(JSON.stringify(json));
+
+
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~vogelpen/Database/?" + query.toString());
+        console.log(response);
+
         alert("Input received");
 
     }
 
-    function generateContent(_data: Data): void {
+    async function generateContent(_data: Data): void {
         
         // Finding Task-Characteristics ->  Predefining them for me to use
         let name: string;
@@ -63,6 +81,17 @@ namespace L05_ToDoList {
         let comment: string;
         let date: string;
         let time: string;
+
+
+        let query: URLSearchParams = new URLSearchParams();
+        query.set("command", "find");
+        query.set("collection", "Tasks");
+        query.toString();
+
+        
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~vogelpen/Database/?" + query.toString());
+        let offer: string = await response.text();
+        let newTask: any = response.json; 
 
         // Go through Data
         for (let tasks in _data) {
@@ -146,8 +175,18 @@ namespace L05_ToDoList {
         // When clicked function deleteTask is triggered
         deleteIcon.addEventListener("click", deleteTask );
 
-        function deleteTask(_event: Event) {
+        async function deleteTask(_event: Event) {
             list.removeChild(newTaskDiv)
+
+            let query: URLSearchParams = new URLSearchParams();
+
+            query.set("command", "delete");
+            query.set("collection", "Tasks");
+            query.set("data", JSON.stringify(json));
+    
+    
+            let response: Response = await fetch("https://webuser.hs-furtwangen.de/~vogelpen/Database/index.php?" + query.toString());
+            console.log(response);
         };
         
         // Add Select-Element with three options: in progress, done and incomplete

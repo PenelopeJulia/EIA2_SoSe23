@@ -6,8 +6,11 @@ var L05_ToDoList;
     // Function handleLoad calls Function generateContent and grabs Button from DOM
     async function handleLoad(_event) {
         console.log("handeLoad triggered");
+        // Fetching JSON and 
         let response = await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/Data.json");
+        // Assign Result of text() to offer
         let offer = await response.text();
+        // Assigns result of calling JSON on offer so we can use it
         let data = JSON.parse(offer);
         // Accesing Button from DOM with ID
         // <HTMLBodyElement> -> Forces TS to accept Button as HTMLElement -> resolve Error
@@ -20,34 +23,36 @@ var L05_ToDoList;
     }
     async function sendTask(_event) {
         console.log("Input sent");
+        // Declare new Variable form and get from HTML
         let form = document.querySelector("form");
+        // New Variable formData of Type FormData  -> form argument
         let formData = new FormData(form);
+        // formData as argument contained in specified form
         let query = new URLSearchParams(formData);
+        // Waiting for response from Server
         await fetch("https://penelopejulia.github.io/EIA2_SoSe23/A05_ToDoList_Client/ToDoList.html" + query.toString());
         alert("Input received");
     }
-    // Function generate Content loads Data stored in Array in Data.ts
-    // Data from User is caught and pushed into Array Task[] 
-    // New Elements are created, Data from Task[] is pushed into new Elements 
-    // New Elements are pushed into HTML for User to see on page
     function generateContent(_data) {
-        // Finding Task-Characteristics ->  Predefining them for me to use in this namespace
+        // Finding Task-Characteristics ->  Predefining them for me to use
         let name;
         let task;
         let comment;
         let date;
         let time;
+        // Go through Data
         for (let tasks in _data) {
+            // Create new Variable of Type Array Task[] 
             let data = _data[tasks];
             // For-Loop -> Counting up from 0 in Array
             for (let index = 0; index < data.length; index++) {
                 // Attributes from Array assigned to according Variables
-                // 
                 name = data[index].name;
                 task = data[index].task;
                 comment = data[index].comment;
                 date = data[index].date;
                 time = data[index].time;
+                // Example Text from Data.json
                 let createDiv = document.createElement("div");
                 createDiv.innerHTML = name + " " + task + " " + comment + " " + date + " " + time + " ";
                 createDiv.classList.add("dataList");
@@ -55,7 +60,6 @@ var L05_ToDoList;
             }
         }
     }
-    // Function addTask 
     function addTask(_event) {
         // Declare variables and get input and textarea by ID from DOM
         let nameInput = document.getElementById("name");
@@ -63,6 +67,7 @@ var L05_ToDoList;
         let dateInput = document.getElementById("date");
         let timeInput = document.getElementById("time");
         let commentInput = document.getElementById("comment");
+        //Assign Values to Attributes from Array
         let i = {
             name: nameInput.value,
             task: taskInput.value,
@@ -70,7 +75,9 @@ var L05_ToDoList;
             date: dateInput.value,
             time: timeInput.value,
         };
+        // Function addInput gets data from i where we assigned input-value to elements of array
         addInput(i);
+        // Remove Input-Value
         nameInput.value = "";
         taskInput.value = "";
         commentInput.value = "";
@@ -83,8 +90,8 @@ var L05_ToDoList;
         let newTaskDiv = document.createElement("div");
         // Give newTaskDiv a Class for CSS
         newTaskDiv.classList.add("newTaskDiv");
+        // Create new P where we Input-Value-Text
         let label = document.createElement("label");
-        let date = document.createElement("p");
         // Create new Icon -> Delete-Icon
         let deleteIcon = document.createElement("i");
         // Give it a class for CSS
@@ -110,11 +117,13 @@ var L05_ToDoList;
         option3.text = "incomplete";
         statusList.add(option3);
         statusList.id = ("statusList");
+        // Assign Value to new P-Element in newTaskDiv
         label.innerHTML += _data.name + " " + _data.task + " " + _data.comment + " " + _data.date + " " + _data.time + " ";
+        // Append new Items to newTaskDiv
         newTaskDiv.appendChild(statusList);
         newTaskDiv.appendChild(deleteIcon);
-        newTaskDiv.appendChild(date);
         newTaskDiv.appendChild(label);
+        // Get List Element and append newTaskDiv to list
         let list = document.querySelector(".list");
         list.appendChild(newTaskDiv);
     }
