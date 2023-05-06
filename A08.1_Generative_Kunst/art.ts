@@ -50,6 +50,7 @@ function drawCircle(): void{
         circle.fill();
         circle.closePath();
         circle.stroke();
+    
     }
 
 }
