@@ -19,8 +19,8 @@ var L08GenerativeKunst;
         // Call other functions
         drawCircle();
         drawElipse();
-        drawLine();
         drawRectangle();
+        drawLine();
     }
     function drawCircle() {
         // Circle size varies from min to max
@@ -48,7 +48,7 @@ var L08GenerativeKunst;
         elipse.fillStyle = "#DBE023";
         elipse.strokeStyle = "#DBE023";
         // Randomize Elipse-Sizes
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 3; i++) {
             let x = Math.random() * elipse.canvas.width;
             let y = Math.random() * elipse.canvas.height;
             elipse.beginPath();
@@ -76,10 +76,10 @@ var L08GenerativeKunst;
     }
     function drawLine() {
         // Give Lines a color
-        let color = ["#BB1818", "#9C0CE0", "#14982E"];
+        let color = ["#BB1818"];
         //Randomize Line-Sizes
         for (let i = 0; i < color.length; i++) {
-            for (let index = 0; index < 4; index++) {
+            for (let index = 0; index < 2; index++) {
                 let a = randomNumber(0, canvas.width);
                 let b = randomNumber(0, canvas.height);
                 let c = randomNumber(0, canvas.width);

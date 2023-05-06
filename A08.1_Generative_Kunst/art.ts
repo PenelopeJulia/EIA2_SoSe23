@@ -26,8 +26,8 @@ function handleLoad(): void {
     // Call other functions
     drawCircle();
     drawElipse();
-    drawLine();
     drawRectangle();
+    drawLine();
 }
 
 function drawCircle(): void{
@@ -65,7 +65,7 @@ function drawElipse(): void{
     elipse.strokeStyle = "#DBE023";
 
     // Randomize Elipse-Sizes
-    for (let i: number = 0; i < 10; i++) {
+    for (let i: number = 0; i < 3; i++) {
         let x: number = Math.random() * elipse.canvas.width;
         let y: number = Math.random() * elipse.canvas.height;
 
@@ -100,14 +100,15 @@ function drawRectangle(): void{
 
 }
 
+
 function drawLine(): void {
 
     // Give Lines a color
-    let color: string[] = ["#BB1818", "#9C0CE0", "#14982E"];
+    let color: string[] = ["#BB1818"];
 
     //Randomize Line-Sizes
     for(let i: number = 0; i < color.length; i++) {
-        for (let index: number = 0; index < 4; index++) {
+        for (let index: number = 0; index < 2; index++) {
             let a: number = randomNumber(0, canvas.width);
             let b: number = randomNumber(0, canvas.height);
             let c: number = randomNumber(0, canvas.width);
