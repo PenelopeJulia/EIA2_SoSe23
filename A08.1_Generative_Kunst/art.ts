@@ -2,6 +2,7 @@ namespace L08GenerativeKunst{
 
 
 // Quelle: https://kernhanda.github.io/tutorial-typescript-canvas-drawing/
+// Quelle: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
 
 // When page loads trigger function handleLoad
 window.addEventListener("load", handleLoad);
@@ -26,6 +27,7 @@ function handleLoad(): void {
     drawCircle();
     drawElipse();
     drawLine();
+    drawRectangle();
 }
 
 function drawCircle(): void{
@@ -39,11 +41,10 @@ function drawCircle(): void{
     circle.strokeStyle = "#1F686A";
 
     // Randomize Circle-Size
-    for (let i: number = 0; i <10; i++) {
+    for (let i: number = 0; i <6; i++) {
         let x: number = Math.random() * circle.canvas.width;
         let y: number = Math.random() * circle.canvas.height;
 
-        // Source-Inspo: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
         circle.beginPath();
         circle.arc(x,y,size, 0, 2 * Math.PI);
         circle.fill();
@@ -68,13 +69,35 @@ function drawElipse(): void{
         let x: number = Math.random() * elipse.canvas.width;
         let y: number = Math.random() * elipse.canvas.height;
 
-        // Source-Inspo https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse
         elipse.beginPath();
         elipse.ellipse(x, y, size, 15, 5, 0, 360);
         elipse.fill();
         elipse.closePath();
         elipse.stroke();
     }
+}
+
+function drawRectangle(): void{
+
+    let rect: CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
+
+    // Give Circle Color 
+    rect.fillStyle = "#16C310";
+    rect.strokeStyle = "#16C310";
+
+    // Randomize Rectangle-Size
+    for (let i: number = 0; i <4; i++) {
+        let x: number = Math.random() * rect.canvas.width;
+        let y: number = Math.random() * rect.canvas.height;
+
+        rect.beginPath();
+        rect.rect(x, y, 150, 100);
+        rect.fill();
+        rect.closePath();
+        rect.stroke();
+        
+    }
+
 }
 
 function drawLine(): void {
@@ -84,13 +107,12 @@ function drawLine(): void {
 
     //Randomize Line-Sizes
     for(let i: number = 0; i < color.length; i++) {
-        for (let index: number = 0; index < 50; index++) {
+        for (let index: number = 0; index < 4; index++) {
             let a: number = randomNumber(0, canvas.width);
             let b: number = randomNumber(0, canvas.height);
             let c: number = randomNumber(0, canvas.width);
             let d: number = randomNumber(0, canvas.height);
             
-            // Source: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
             crc2.beginPath();
             crc2.moveTo(a, b);
             crc2.lineTo(c, d);
@@ -102,6 +124,7 @@ function drawLine(): void {
 
 }
 
+// Function Value of max and min are assigned
 function randomNumber(min: number, max: number): number {
     
     min = Math.ceil(min);
