@@ -52,8 +52,7 @@ var L06_ToDoList_Database;
         query.set("collection", "Tasks");
         query.toString();
         let response = await fetch("https://webuser.hs-furtwangen.de/~vogelpen/Database/?" + query.toString());
-        let offer = await response.text();
-        let newTask = response.json;
+        let Task = await response.text();
         // Go through Data
         for (let tasks in _data) {
             // Create new Variable of Type Array Task[] 

@@ -90,8 +90,8 @@ namespace L06_ToDoList_Database {
 
         
         let response: Response = await fetch("https://webuser.hs-furtwangen.de/~vogelpen/Database/?" + query.toString());
-        let offer: string = await response.text();
-        let newTask: any = response.json; 
+        let Task: string = await response.text();
+       
 
         // Go through Data
         for (let tasks in _data) {
