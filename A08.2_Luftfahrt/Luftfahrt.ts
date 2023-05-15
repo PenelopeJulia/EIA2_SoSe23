@@ -46,11 +46,11 @@ function handleLoad(): void {
 
     drawZone({x: 600, y: 460});
 
-    drawParachutePerson({x: 100, y: 100});
     drawParachutePerson({x: 200, y: 100});
-    drawParachutePerson({x: 200, y: 500});
+    drawParachutePerson({x: 400, y: 200});
+    drawParachutePerson({x: 600, y: 250});
 
-    drawPerson({x: 100, y: 500});
+    drawPerson({x: 100, y: 200});
 
 }
 
@@ -216,11 +216,11 @@ function drawPerson(_position: Vector): void {
     // Create Person
     person.beginPath();
     person.fillStyle = "#40b90a";
-    person.fillRect(600, 470, 10, 25);
+    person.fillRect(350, 480, 10, 25);
     person.fill();
     person.beginPath();
     person.fillStyle = "#d4a985";
-    person.arc(605, 465, 9, 0, 2 * Math.PI);
+    person.arc(355, 475, 9, 0, 2 * Math.PI);
     person.fill();
 }
 
@@ -228,20 +228,30 @@ function drawParachutePerson(_position: Vector): void {
 
     let personParachute: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
+    // Randomize Color
+    let colorBody = Math.floor(Math.random() * 360);
+    let saturationBody = Math.floor(Math.random() * 50) + 70;
+    let lightnessBody = Math.floor(Math.random() * 40) + 20;
+
+    let colorParachute = Math.floor(Math.random() * 360);
+    let saturationParachute = Math.floor(Math.random() * 50) + 70;
+    let lightnessParachute = Math.floor(Math.random() * 40) + 20;
+
     // Create People 
      personParachute.beginPath();
-     personParachute.fillStyle = "#40b90a";
-     personParachute.fillRect(410, 255, 10, 25);
+     personParachute.fillStyle =  "hsl(" + colorBody + ", " + saturationBody + "%, " + lightnessBody + "%)";
+     personParachute.fillRect(_position.x, _position.y + 30, 10, 25);
      personParachute.fill();
      personParachute.beginPath();
+     // Head
      personParachute.fillStyle = "#d4a985";
-     personParachute.arc(415, 250, 9, 0, 2 * Math.PI);
+     personParachute.arc(_position.x + 5, _position.y + 25, 9, 0, 2 * Math.PI);
      personParachute.fill();
      
      // Parachute
      personParachute.beginPath();
-     personParachute.fillStyle = "#483D8B";
-     personParachute.ellipse(415, 220, 40, 20, 3, 0, 360);
+     personParachute.fillStyle = "hsl(" + colorParachute + ", " + saturationParachute + "%, " + lightnessParachute + "%)";
+     personParachute.arc(_position.x + 5, _position.y - 25, 40, 0, 2 * Math.PI);
      personParachute.fill();
 
 
