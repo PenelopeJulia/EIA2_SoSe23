@@ -1,0 +1,23 @@
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    background-image: url(pexels-pixabay-235725.jpg);
+}
+
+#food {
+    position: relative;
+    padding: 30px;
+    color: #03420a;
+}
+
+#song {
+    position: relative;
+    padding: 30px;
+    color: #12437f;
+}
+
+#animals {
+    position: relative;
+    padding-left: 30px;
+    color: #ffffff;
+}
