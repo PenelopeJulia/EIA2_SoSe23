@@ -3,11 +3,11 @@ namespace A09OldMacDonaldFarm {
     window.addEventListener("load", handleLoad);
 
     // Farm Animals (Name, Animal, Food, Amount, Noise ...)
-    let horse: Animals = new Animals("Tommy", "Horse", "Grass", 40, "Neigh", 25);
-    let pig: Animals = new Animals("Magda", "Pig", "Corn", 40, "Oink", 10);
-    let dog: Animals = new Animals("Titus", "Dog", "Meat", 20, "Woof", 5);
-    let cow: Animals = new Animals("Mathilda", "Cow", "Hay", 40, "Moo", 10);
-    let cat: Animals = new Animals("Mirinda", "Cat", "Meat", 15, "Miau", 2);
+    let horse: Animals = new Animals("Tommy", "Horse", "Grass", 40, "Neigh", 2);
+    let pig: Animals = new Animals("Magda", "Pig", "Corn", 40, "Oink", 4);
+    let dog: Animals = new Animals("Titus", "Dog", "Meat", 20, "Woof", 1);
+    let cow: Animals = new Animals("Mathilda", "Cow", "Hay", 40, "Moo", 3);
+    let cat: Animals = new Animals("Mirinda", "Cat", "Meat", 15, "Miau", 0.5);
 
 
     // Create Array that will contain Animals

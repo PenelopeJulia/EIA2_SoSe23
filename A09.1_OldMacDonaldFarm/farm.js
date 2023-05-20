@@ -3,11 +3,11 @@ var A09OldMacDonaldFarm;
 (function (A09OldMacDonaldFarm) {
     window.addEventListener("load", handleLoad);
     // Farm Animals (Name, Animal, Food, Amount, Noise ...)
-    let horse = new A09OldMacDonaldFarm.Animals("Tommy", "Horse", "Grass", 40, "Neigh", 25);
-    let pig = new A09OldMacDonaldFarm.Animals("Magda", "Pig", "Corn", 40, "Oink", 10);
-    let dog = new A09OldMacDonaldFarm.Animals("Titus", "Dog", "Meat", 20, "Woof", 5);
-    let cow = new A09OldMacDonaldFarm.Animals("Mathilda", "Cow", "Hay", 40, "Moo", 10);
-    let cat = new A09OldMacDonaldFarm.Animals("Mirinda", "Cat", "Meat", 15, "Miau", 2);
+    let horse = new A09OldMacDonaldFarm.Animals("Tommy", "Horse", "Grass", 40, "Neigh", 2);
+    let pig = new A09OldMacDonaldFarm.Animals("Magda", "Pig", "Corn", 40, "Oink", 4);
+    let dog = new A09OldMacDonaldFarm.Animals("Titus", "Dog", "Meat", 20, "Woof", 1);
+    let cow = new A09OldMacDonaldFarm.Animals("Mathilda", "Cow", "Hay", 40, "Moo", 3);
+    let cat = new A09OldMacDonaldFarm.Animals("Mirinda", "Cat", "Meat", 15, "Miau", 0.5);
     // Create Array that will contain Animals
     let stable = [];
     // Push Animals with their properties into Stable-Array

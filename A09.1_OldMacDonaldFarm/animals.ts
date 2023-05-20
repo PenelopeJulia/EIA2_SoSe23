@@ -22,7 +22,7 @@ namespace A09OldMacDonaldFarm {
                     this.sounds = _sounds;
                     this.eaten = _eaten;
                     // Create Lyrics for Song
-                    this.lyric = "And on that Farm he had a " + this.species + ".<br>" + this.name + " the " + this.species + " sang " + this.sounds + " and ate " + this.eaten + " of " + this.food + ".<br>"; 
+                    this.lyric = "And on that Farm he had a " + this.species + " EIEIO <br>" + " And on his farm he had a " + this.species + " called " + this.name + " that sang " + this.sounds + " and ate " + this.eaten + " kg of " + this.food + ".<br>"; 
     
             }
     
