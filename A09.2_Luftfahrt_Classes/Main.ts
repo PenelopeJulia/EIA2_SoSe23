@@ -12,9 +12,12 @@ interface Vector {
 export let canvas: HTMLCanvasElement;
 export let crc2: CanvasRenderingContext2D;
 
-let horizon: number = 0.6;
+// New Variables
 
+let horizon: number = 0.6;
+// Background of Type ImageData
 let background: ImageData;
+// Arrays
 let paragliders: Paraglider[] = [];
 let people: Person[] = [];
 
@@ -23,22 +26,25 @@ function handleLoad(): void {
     canvas = <HTMLCanvasElement>document.querySelector("canvas");
     crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
+    // Call Functions 
     drawBackground();
-    createAnimatedObjects(2);
+    createAnimatedObjects("neutral");
     setInterval(update, 20);
 
 }
 
-function createAnimatedObjects(random: number): void {
-    console.log("create Objects");
+function createAnimatedObjects(color: string): void {
 
+    // Go through Array Paraglider with a minimum of 13 Paragliders depicted on canvas
     for (let iParaglider: number = 0; iParaglider < 13; iParaglider++) {
-        let paraglider: Paraglider = new Paraglider();
+        let paraglider: Paraglider = new Paraglider(color);
+        // Push locally declared paraglider from Array Paraglider into globally declared Variable paragliders
         paragliders.push(paraglider);
     }
 
-    for (let iPerson: number = 0; iPerson < 15; iPerson++) {
-        let person: Person = new Person(random);
+    // Same thing just with the People on Earth
+    for (let iPerson: number = 0; iPerson < 2; iPerson++) {
+        let person: Person = new Person(color);
         people.push(person);
     }
 }
@@ -46,18 +52,19 @@ function createAnimatedObjects(random: number): void {
 
 function update(): void {
 
+    // Put Background on Canvas
     crc2.putImageData(background, 0, 0);
 
     console.log("update");
 
     for (let person of people) {
-        person.animatePerson(1 / 50);
         person.drawPerson();
+        person.animatePerson(1 / 1000);
     }
 
     for (let paraglider of paragliders) {
         paraglider.drawParachute();
-        paraglider.animateParachute(1 / 200);
+        paraglider.animateParachute(1 / 1000);
     }
 
 }

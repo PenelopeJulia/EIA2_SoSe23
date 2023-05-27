@@ -3,38 +3,45 @@ var A09LuftfahrtClasses;
 (function (A09LuftfahrtClasses) {
     //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
     window.addEventListener("load", handleLoad);
+    // New Variables
     let horizon = 0.6;
+    // Background of Type ImageData
     let background;
+    // Arrays
     let paragliders = [];
     let people = [];
     function handleLoad() {
         A09LuftfahrtClasses.canvas = document.querySelector("canvas");
         A09LuftfahrtClasses.crc2 = A09LuftfahrtClasses.canvas.getContext("2d");
+        // Call Functions 
         drawBackground();
-        createAnimatedObjects(2);
+        createAnimatedObjects("neutral");
         setInterval(update, 20);
     }
-    function createAnimatedObjects(random) {
-        console.log("create Objects");
+    function createAnimatedObjects(color) {
+        // Go through Array Paraglider with a minimum of 13 Paragliders depicted on canvas
         for (let iParaglider = 0; iParaglider < 13; iParaglider++) {
-            let paraglider = new A09LuftfahrtClasses.Paraglider();
+            let paraglider = new A09LuftfahrtClasses.Paraglider(color);
+            // Push locally declared paraglider from Array Paraglider into globally declared Variable paragliders
             paragliders.push(paraglider);
         }
-        for (let iPerson = 0; iPerson < 15; iPerson++) {
-            let person = new A09LuftfahrtClasses.Person(random);
+        // Same thing just with the People on Earth
+        for (let iPerson = 0; iPerson < 2; iPerson++) {
+            let person = new A09LuftfahrtClasses.Person(color);
             people.push(person);
         }
     }
     function update() {
+        // Put Background on Canvas
         A09LuftfahrtClasses.crc2.putImageData(background, 0, 0);
         console.log("update");
         for (let person of people) {
-            person.animatePerson(1 / 50);
             person.drawPerson();
+            person.animatePerson(1 / 1000);
         }
         for (let paraglider of paragliders) {
             paraglider.drawParachute();
-            paraglider.animateParachute(1 / 200);
+            paraglider.animateParachute(1 / 1000);
         }
     }
     function drawBackground() {

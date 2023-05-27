@@ -8,11 +8,13 @@ export class Paraglider {
     color: string;
  
 
-    constructor() {
+    constructor(_color: string) {
         this.position = new Vector(0, 0);
         this.velocity = new Vector(0, 0);
+        this.color = _color;
     }
 
+    // Animate Paraglider with 
     animateParachute(_timeslice: number): void {
 
         console.log("scale");
@@ -32,9 +34,9 @@ export class Paraglider {
         this.position.y -= crc2.canvas.height;
     }
 
+    // Draw Paralider
     drawParachute(): void {
 
-    // Randomize Color
     let colorBody = Math.floor(Math.random() * 360);
     let saturationBody = Math.floor(Math.random() * 50) + 70;
     let lightnessBody = Math.floor(Math.random() * 40) + 20;
@@ -43,18 +45,16 @@ export class Paraglider {
     let saturationParachute = Math.floor(Math.random() * 50) + 70;
     let lightnessParachute = Math.floor(Math.random() * 40) + 20;
 
-    // Create People 
      crc2.beginPath();
      crc2.fillStyle =  "hsl(" + colorBody + ", " + saturationBody + "%, " + lightnessBody + "%)";
      crc2.fillRect(this.position.x, this.position.y + 30, 10, 25);
      crc2.fill();
      crc2.beginPath();
-     // Head
+
      crc2.fillStyle = "#d4a985";
      crc2.arc(this.position.x + 5, this.position.y + 25, 9, 0, 2 * Math.PI);
      crc2.fill();
      
-     // Parachute
      crc2.beginPath();
      crc2.fillStyle = "hsl(" + colorParachute + ", " + saturationParachute + "%, " + lightnessParachute + "%)";
      crc2.arc(this.position.x + 5, this.position.y - 25, 40, 0, 2 * Math.PI);

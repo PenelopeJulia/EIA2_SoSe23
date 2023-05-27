@@ -4,30 +4,45 @@ namespace A09LuftfahrtClasses {
         
             position: Vector;
             velocity: Vector;
-            type: number;
-            random: number;
-           
-         
-        
-            constructor(_random: number) {
-                this.position = new Vector(0, 0);
-                this.velocity = new Vector(0, 0);  
-                this.velocity.random(300, 200);  
-                this.random = _random;
+            type: string;
+            color: string;
+ 
+
+            constructor(_color: string) {
+            this.position = new Vector(0, 0);
+            this.velocity = new Vector(0, 0);
+            this.color = _color;
         
             }
 
+            // Animate Position of Person
+            animatePerson (_timeslice: number) {
+                console.log("scale");
+
+                let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
+                offset.scale(_timeslice);
+                this.position.add(offset);
+            
+            
+                if (this.position.x < 0)
+                    this.position.x += crc2.canvas.width;
+                if (this.position.y < 0)
+                    this.position.y += crc2.canvas.height;
+                if (this.position.x > crc2.canvas.width)
+                    this.position.x -= crc2.canvas.width;
+                if (this.position.y > 500)
+                    this.position.y -= crc2.canvas.height;
+                }
+         
+
+            // Draw Person
             drawPerson(): void {
         
 
                 let person: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
-                let scale: number = ((person.canvas.width*2)/1000);
 
                 console.log("draw");
                 person.save();
-
-                person.translate(this.position.x, this.random);
-                person.scale(scale, scale);
                 
                  // Create Person
                 person.beginPath();
@@ -40,27 +55,12 @@ namespace A09LuftfahrtClasses {
                 person.fill();
                 
                 person.restore();
-                }
-        
-            animatePerson(_timeslice: number): void {
-        
-            let offset: Vector = new Vector(this.velocity.x, -70);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-        
-        
-            if (this.position.x < 0)
-                this.position.x += crc2.canvas.width;
-
-            if (this.position.x > crc2.canvas.width)
-                this.position.x -= crc2.canvas.width;
-    
             }
         
         
         }
- }
-        
+ 
+    }   
 
 
 
